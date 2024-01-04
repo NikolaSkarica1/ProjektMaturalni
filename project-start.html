@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div id="container">
+    </div>
+    <script>
+        const options = {
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MGIwNTY2YjQ0MGM3YzEyMzczNTk3ZGNkNmU0NGE2MyIsInN1YiI6IjY1ODE4MjI0MjI2YzU2MDdmZTlmMTJmMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.RUvOSEO-KbF9h1Ta9J6ylU-5BhXLebJ2qpmTxw14hjk'
+            }
+        };
+
+        async function logMovies() {
+            const response = await fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc', options);
+            const movies = await response.json();
+            console.log(movies);
+            for (let i = 0; i < movies.results.length; i++) {
+                console.log(movies.results[i].original_title);
+                $("#container").append("<img width=250px height=380px src='https://www.themoviedb.org/t/p/w1280/" + movies.results[i].poster_path + "'></img")
+            }
+
+            const response2 = await fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=2&sort_by=popularity.desc', options);
+            const movies2 = await response2.json();
+            console.log(movies2);
+            for (let i = 0; i < movies2.results.length; i++) {
+                console.log(movies2.results[i].original_title);
+                $("#container").append("<img width=250px height=380px src='https://www.themoviedb.org/t/p/w1280/" + movies2.results[i].poster_path + "'></img")
+            }
+
+            const response3 = await fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=3&sort_by=popularity.desc', options);
+            const movies3 = await response3.json();
+            console.log(movies3);
+            for (let i = 0; i < movies3.results.length; i++) {
+                console.log(movies3.results[i].original_title);
+                $("#container").append("<img width=250px height=380px src='https://www.themoviedb.org/t/p/w1280/" + movies3.results[i].poster_path + "'></img")
+            }
+        }
+
+        logMovies();
+        
+    </script>
+</body>
+
+</html>
