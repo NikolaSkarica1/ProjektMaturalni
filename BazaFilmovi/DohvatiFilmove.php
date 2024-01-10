@@ -19,26 +19,25 @@
             Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MGIwNTY2YjQ0MGM3YzEyMzczNTk3ZGNkNmU0NGE2MyIsInN1YiI6IjY1ODE4MjI0MjI2YzU2MDdmZTlmMTJmMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.RUvOSEO-KbF9h1Ta9J6ylU-5BhXLebJ2qpmTxw14hjk'
         }
     };
-    let myJSONTex;
+    let myJSONText="";
     async function logMovies() {
-        const response = await fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc', options);
-        const movies = await response.json();
-        myJSONText=JSON.stringify(movies.results);
-        console.log(myJSONText);
+        // for (let i = 1; i <= 3; i++) {
+            const response = await fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=3&sort_by=popularity.desc', options);
+            const movies = await response.json();
+            console.log(movies);
+            myJSONText=JSON.stringify(movies.results);
+            console.log(myJSONText);             
+        // }
     }
     logMovies();
 
     $("#submit").click(function(){
-        console.log("KYS");  
         $.ajax({
             type:"POST",
             data:{myJSONText : myJSONText},
             url:"UbaciFilmove.php",
             success: function(data) {
                 $("#Ispis").html(data);
-            },
-            error: function(xhr, status, error) {
-                console.error(xhr);
             }
         });
     });
