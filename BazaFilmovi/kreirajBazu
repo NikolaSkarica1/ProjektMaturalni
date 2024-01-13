@@ -1,0 +1,12 @@
+CREATE DATABASE baza;
+
+CREATE TABLE filmovi(
+	Title varchar(255),
+	Relese_date date,
+    Vote_Average decimal(2,2),
+    Vote_Count int(255),
+    Overview text,
+    original_language varchar(255),
+    id_film int(255),
+    genre_ids varchar(255)
+);
