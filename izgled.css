@@ -1,0 +1,28 @@
+#poster-index{
+    width:180px;
+    height:260px;
+    border-radius: 10px;
+}
+#film{
+    align-items: center;
+    margin:0px;
+    border: 0px;;
+    display:inline-table;
+    word-break: normal;
+    width: 190px;   
+}
+#title{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    margin: 0px;
+}
+#section{
+    width: 200%;
+    margin: 20px;
+}
+body{
+    width: 100%;
+}
+h2{
+    margin: 5px;
+}
