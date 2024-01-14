@@ -13,7 +13,6 @@
     <div id="container">
     </div>
     <script>
-
         const options = {
             method: 'GET',
             headers: {
@@ -29,12 +28,11 @@
                 console.log(movies);
                 for (let i = 0; i < movies.results.length; i++) {
                     console.log(movies.results[i].original_title);
-                    $("#container").append("<img width=250px height=380px src='https://www.themoviedb.org/t/p/w1280/" + movies.results[i].poster_path + "'></img")
+                    $("#container").append("<img width=250px height=380px src='https://www.themoviedb.org/t/p/w1280/" + movies.results[i].poster_path + "'></img>")
                 }
             }
         }
         logMovies();
-
     </script>
 </body>
 
