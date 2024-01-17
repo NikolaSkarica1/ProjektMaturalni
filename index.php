@@ -7,11 +7,13 @@
     <title>Index</title>
 </head>
 <body>
-    <h1>Filmovi!</h1>
-    <form action="Search.php" method="GET">
-        Unesite Ime filma:<input type="text" name="select" >
-        <input type="submit" value="Upit na bazu">
-    </form>
+    <div id="header">
+        <h1 id="Naziv-Stranica">Filmovi!</h1>
+        <form action="Search.php" method="GET" id="Search">
+            <input type="text" name="select" id="search-input" placeholder="Tražite filmove"/>
+            <button type="submit"><img class="search-slika" src="slike/search.png"></img></button>
+        </form>
+    </div>
 
     <div id="section">
         <h2>Top Rated</h2>
