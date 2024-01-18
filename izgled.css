@@ -40,6 +40,7 @@
 #film{
     align-items: center;
     margin:0px;
+    margin-bottom: 2px;
     border: 0px;;
     display:inline-table;
     word-break: normal;
@@ -53,6 +54,21 @@
 #section{
     width: 200%;
     padding: 15px;
+}
+#section-search{
+    margin-left: 3%;
+    margin-right: 3%;
+}
+#index-score{
+    margin: 0px;
+    float: left;
+    font-size: 20px;
+}
+#index-star{
+    float: left;
+    height: 17px;
+    width: 17px;
+    padding-top: 3px;
 }
 h2{
     margin: 5px;

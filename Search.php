@@ -1,7 +1,10 @@
 <html>
 <head>
-    <title>Search</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="izgled.css">
+    <title>Search</title>
 </head>
 <body>
 <div id="header">
@@ -13,7 +16,7 @@
     </div>
 <?php
     $unos=$_GET['select'];
-    echo("<div id='Section'><h2>Results for search '".$unos."'</h2> <br/>");
+    echo("<div id='Section-search'><h2>Rezultati za '".$unos."'</h2> <br/>");
     $connection=mysqli_connect("localhost","root","","baza");
     $select="SELECT * FROM filmovi WHERE title LIKE '%".$unos."%'";
     $selected=mysqli_query($connection,$select);
@@ -22,6 +25,7 @@
         <div id='film'>
             <img id='poster-index' src='https://www.themoviedb.org/t/p/w1280/".$value['poster_path']."'></img>
             <p id='title'>".$value['Title']."</p>
+            <p id='index-score'>".$value['Vote_Average']."</p><img id='index-star' src='slike/star.png'></img>
         </div>  
         ");
     }
