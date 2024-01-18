@@ -32,6 +32,13 @@
     width: 300px;
     margin: 0px;          
 }
+#ikona{
+    height: 70px;
+    float: left;
+    width: 70px;
+    margin: 0px; 
+    margin-right: 3px;
+}
 #poster-index{
     width:180px;
     height:260px;
@@ -72,4 +79,7 @@
 }
 h2{
     margin: 5px;
+}
+a:visited{
+color: black;
 }

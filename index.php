@@ -9,8 +9,10 @@
 </head>
 <body>
     <div id="header">
-        <!-- Treba dodat da se na Filmovi! klik vrati na pocetnu -->
-        <h1 id="Naziv-Stranica">Filmovi!</h1>
+        <a href="http://localhost/Projekt/">
+            <img src="slike/ikona.png" id="ikona"/>        
+            <h1 id="Naziv-Stranica">Filmovi!</h1>
+        </a>
         <form action="Search.php" method="GET" id="Search">
             <input type="text" name="select" id="search-input" placeholder="Tražite filmove"/>
             <button type="submit"><img class="search-slika" src="slike/search.png"></img></button>
@@ -27,7 +29,7 @@
             array("Znanstvena Fantastika","SELECT * FROM `filmovi` WHERE genre_id = 878 or genre_id_2 = 878 LIMIT 15"),
             array("Fantazija","SELECT * FROM `filmovi` WHERE genre_id = 14 or genre_id_2 = 14 LIMIT 15"),
             array("Animacija","SELECT * FROM `filmovi` WHERE genre_id = 16 or genre_id_2 = 16 LIMIT 15"),
-            array("Komedija","SELECT * FROM `filmovi` WHERE genre_id = 35 or genre_id_2 = 35 LIMIT 15"),
+            array("Komedije","SELECT * FROM `filmovi` WHERE genre_id = 35 or genre_id_2 = 35 LIMIT 15"),
             array("Kriminalni","SELECT * FROM `filmovi` WHERE genre_id = 80 or genre_id_2 = 80 LIMIT 15"),
             array("Drame","SELECT * FROM `filmovi` WHERE genre_id = 18 or genre_id_2 = 18 LIMIT 15"),
             array("Obiteljski","SELECT * FROM `filmovi` WHERE genre_id = 10751 LIMIT 15"),

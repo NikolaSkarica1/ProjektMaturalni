@@ -7,8 +7,11 @@
     <title>Search</title>
 </head>
 <body>
-<div id="header">
-        <h1 id="Naziv-Stranica">Filmovi!</h1>
+    <div id="header">
+        <a href="http://localhost/Projekt/">
+            <img src="slike/ikona.png" id="ikona"/>        
+            <h1 id="Naziv-Stranica">Filmovi!</h1>
+        </a>
         <form action="Search.php" method="GET" id="Search">
             <input type="text" name="select" id="search-input" placeholder="Tražite filmove"/>
             <button type="submit"><img class="search-slika" src="slike/search.png"></img></button>
