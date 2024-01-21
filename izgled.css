@@ -1,3 +1,4 @@
+/* HEADER */
 #header{
     margin: 0px;
     width: 100%;
@@ -39,10 +40,21 @@
     margin: 0px; 
     margin-right: 3px;
 }
-#poster-index{
-    width:180px;
-    height:260px;
-    border-radius: 10px;
+a,a:hover, a:visited{
+    color: black;
+}
+
+
+/* INDEX */
+#section{
+    width: 98%;
+    padding: 15px;
+    white-space: nowrap;
+    overflow: auto;
+}
+#SectionTitle{
+    margin-bottom: -10px;
+    margin-left:15px;
 }
 #film{
     align-items: center;
@@ -50,21 +62,21 @@
     margin-bottom: 2px;
     border: 0px;;
     display:inline-table;
-    word-break: normal;
-    width: 190px;   
+    white-space: normal;
+    width: 180px;   
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 5px;
+    border-radius: 10px;
+}
+#poster-index{
+    width:180px;
+    height:260px;
+    border-radius: 10px;
 }
 #title{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 20px;
     margin: 0px;
-}
-#section{
-    width: 200%;
-    padding: 15px;
-}
-#section-search{
-    margin-left: 3%;
-    margin-right: 3%;
 }
 #index-score{
     margin: 0px;
@@ -77,9 +89,9 @@
     width: 17px;
     padding-top: 3px;
 }
-h2{
-    margin: 5px;
-}
-a:visited{
-color: black;
+
+/* SEARCH */
+#section-search{
+    margin-left: 5%;
+    margin-right: 3%;
 }
