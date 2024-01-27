@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="izgled.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <title>Index</title>
+    <title>Filmovi!</title>
 </head>
 <body>
     <div id="header">
@@ -19,7 +19,7 @@
             <button type="submit"><img class="search-slika" src="slike/search.png"></img></button>
         </form>
     </div>
-
+    <div id="a"></div>
     <?php
         $zarnovi=array(
             array("Najbolje ocjenjeni","SELECT * FROM `filmovi` ORDER BY `filmovi`.`Vote_Average` DESC LIMIT 15"),
@@ -34,7 +34,7 @@
             array("Kriminalni","SELECT * FROM `filmovi` WHERE genre_id = 80 LIMIT 15"),
             array("Drame","SELECT * FROM `filmovi` WHERE genre_id = 18 LIMIT 15"),
             array("Obiteljski","SELECT * FROM `filmovi` WHERE genre_id = 10751 LIMIT 15"),
-            array("Povjesni","SELECT * FROM `filmovi` WHERE genre_id = 36 or genre_id_2 = 36 LIMIT 15"),
+            array("Povjesni","SELECT * FROM `filmovi` WHERE genre_id = 36 LIMIT 15"),
             array("Misteriski","SELECT * FROM `filmovi` WHERE genre_id = 9648 LIMIT 15"),
             array("Trileri","SELECT * FROM `filmovi` WHERE genre_id = 53 LIMIT 15"),
             array("Ratni","SELECT * FROM `filmovi` WHERE genre_id = 10752 LIMIT 15"),
@@ -59,11 +59,16 @@
             ");
             foreach ($selected as $key => $value) {
                 echo("
-                    <div id='film'>
-                        <img id='poster-index' src='https://www.themoviedb.org/t/p/w1280/".$value['poster_path']."'></img>
-                        <p id='title'>".$value['Title']."</p>
-                        <p id='index-score'>".$value['Vote_Average']."</p><img id='index-star' src='slike/star.png'></img>
-                    </div>  
+                <form action='film.php' method='GET'>
+                    <input type='hidden' name='id' value='".$value['id_film']."'/>
+                    <button type='submit' id='prijelaz'>
+                        <div id='film'>
+                            <img id='poster-index' src='https://www.themoviedb.org/t/p/w1280/".$value['poster_path']."'></img>
+                            <p id='title'>".$value['Title']."</p>
+                            <p id='index-score'>".$value['Vote_Average']."</p><img id='index-star' src='slike/star.png'></img>
+                        </diV>
+                    </button> 
+                </form>
                 ");
             }
             echo("

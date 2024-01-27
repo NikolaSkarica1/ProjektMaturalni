@@ -17,19 +17,25 @@
             <button type="submit"><img class="search-slika" src="slike/search.png"></img></button>
         </form>
     </div>
+    <div id="a"></div>
 <?php
     $unos=$_GET['select'];
-    echo("<div id='Section-search'><h2>Rezultati za '".$unos."'</h2> <br/>");
+    echo("<div id='Section-search'><h2 id='RezultatiZa'>Rezultati za '".$unos."'</h2> <br/>");
     $connection=mysqli_connect("localhost","root","","baza");
     $select="SELECT * FROM filmovi WHERE title LIKE '%".$unos."%'";
     $selected=mysqli_query($connection,$select);
     foreach ($selected as $key => $value) {
         echo("
-        <div id='film'>
-            <img id='poster-index' src='https://www.themoviedb.org/t/p/w1280/".$value['poster_path']."'></img>
-            <p id='title'>".$value['Title']."</p>
-            <p id='index-score'>".$value['Vote_Average']."</p><img id='index-star' src='slike/star.png'></img>
-        </div>  
+        <form action='film.php' method='GET'>
+        <input type='hidden' name='id' value='".$value['id_film']."'/>
+        <button type='submit' id='prijelaz'>
+            <div id='film'>
+                <img id='poster-index' src='https://www.themoviedb.org/t/p/w1280/".$value['poster_path']."'></img>
+                <p id='title'>".$value['Title']."</p>
+                <p id='index-score'>".$value['Vote_Average']."</p><img id='index-star' src='slike/star.png'></img>
+            </diV>
+        </button> 
+    </form>
         ");
     }
     echo("</div>")
