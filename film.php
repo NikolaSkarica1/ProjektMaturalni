@@ -37,7 +37,6 @@
         console.log(film);
 
         const godina=film.release_date.split("-");
-        console.log(godina[0]);
 
         let zarnovi="";
         for (let i = 0; i < film.genres.length;) {
@@ -113,21 +112,30 @@
             <h2>${kolekcija.name}:</h2>
             <div id="collection">
         `);
+        const godinaKol=[];
         for (let i = 0; i < kolekcija.parts.length; i++) {
-            $("#collection").append(`
-            <form action='film.php' method='GET'>
-                <input type='hidden' name='id' value='${kolekcija.parts[i].id}'/>
-                <button type='submit' id='prijelaz'>
-                    <div id='film-collection'>
-                        <img id='poster-collection' src='https://www.themoviedb.org/t/p/w1280/${kolekcija.parts[i].backdrop_path}'></img>
-                        <p id='title'>${kolekcija.parts[i].title}</p>
-                        <p id='index-score'>${kolekcija.parts[i].vote_average}</p><img id='index-star' src='slike/star.png'></img>
-                        <p id='index-score'> ◦ 20€</p>
-                    </div>
-                </button> 
-            </form>
-            `);
-            
+            godinaKol[0]=kolekcija.parts[i].release_date.split("-");
+            console.log(godinaKol[0]);
+            var datum = new Date();
+            let sad=datum.getYear()+1900;
+            Relese=parseInt(godinaKol[0])
+            if(sad<Relese || godinaKol[0]==""){
+                console.log("Bruh")
+            }else{
+                $("#collection").append(`
+                <form action='film.php' method='GET'>
+                    <input type='hidden' name='id' value='${kolekcija.parts[i].id}'/>
+                    <button type='submit' id='prijelaz'>
+                        <div id='film-collection'>
+                            <img id='poster-collection' src='https://www.themoviedb.org/t/p/w1280/${kolekcija.parts[i].backdrop_path}'></img>
+                            <p id='title'>${kolekcija.parts[i].title}</p>
+                            <p id='index-score'>${kolekcija.parts[i].vote_average}</p><img id='index-star' src='slike/star.png'></img>
+                            <p id='index-score'> ◦ 20€</p>
+                        </div>
+                    </button> 
+                </form>
+                `);   
+            }    
         }
         $("#content-container").append('</div>');
     }
