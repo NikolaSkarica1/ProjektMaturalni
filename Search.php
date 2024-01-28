@@ -13,14 +13,14 @@
             <h1 id="Naziv-Stranica">Filmovi!</h1>
         </a>
         <form action="Search.php" method="GET" id="Search">
-            <input type="text" name="select" id="search-input" placeholder="Tražite filmove"/>
+            <input type="text" name="select" id="search-input" placeholder="Search"/>
             <button type="submit"><img class="search-slika" src="slike/search.png"></img></button>
         </form>
     </div>
     <div id="a"></div>
 <?php
     $unos=$_GET['select'];
-    echo("<div id='Section-search'><h2 id='RezultatiZa'>Rezultati za '".$unos."'</h2> <br/>");
+    echo("<div id='Section-search'><h2 id='RezultatiZa'>Results for '".$unos."'</h2> <br/>");
     $connection=mysqli_connect("localhost","root","","baza");
     $select="SELECT * FROM filmovi WHERE title LIKE '%".$unos."%'";
     $selected=mysqli_query($connection,$select);

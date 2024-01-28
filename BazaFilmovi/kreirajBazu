@@ -1,16 +1,15 @@
 CREATE DATABASE baza;
 
-CREATE TABLE filmovi(
-	Title varchar(255),
-	Relese_date date,
-    Vote_Average decimal(2,1),
-    Vote_Count int(255),
-    Overview text,
-    original_language varchar(255),
-    id_film int(255),
-    genre_id varchar(255),
-    genre_id_2 varchar(255),
-    genre_id_3 varchar(255),
-    poster_path varchar(255),
-    backdrop_path varchar(255)
-);
+CREATE TABLE `filmovi` (
+  `Title` varchar(255) DEFAULT NULL,
+  `Relese_date` date DEFAULT NULL,
+  `Vote_Average` decimal(2,1) DEFAULT NULL,
+  `Vote_Count` int(255) DEFAULT NULL,
+  `Overview` text DEFAULT NULL,
+  `original_language` varchar(255) DEFAULT NULL,
+  `id_film` int(255) DEFAULT NULL,
+  `genre_id` varchar(255) DEFAULT NULL,
+  `genre_id_2` varchar(255) DEFAULT NULL,
+  `genre_id_3` varchar(255) DEFAULT NULL,
+  `poster_path` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

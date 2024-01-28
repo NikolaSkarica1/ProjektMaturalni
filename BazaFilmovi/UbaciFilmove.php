@@ -18,10 +18,8 @@
         $genre2=$data[$i]['genre_ids'][1];
         $genre3=$data[$i]['genre_ids'][2];
         $poster=$data[$i]['poster_path'];
-        $backdrop=$data[$i]['backdrop_path'];
-        // echo("<br/><br/>".$title_fix." ".$release_date." ".$vote_average." ".$vote_count." ".$owerview_fix." ".$original_language." ".$film_id." ".$genre."</br></br></br>");       
         
-        $unos="INSERT INTO filmovi(Title, Relese_date, Vote_Average, Vote_Count, Overview, original_language, id_film, genre_id, genre_id_2, genre_id_3, poster_path, backdrop_path) VALUES('".$title_fix."','".$release_date."','".$vote_average."','".$vote_count."','".$owerview_fix."','".$original_language."','".$film_id."','".$genre."','".$genre2."','".$genre3."','".$poster."','".$backdrop."')";
+        $unos="INSERT INTO filmovi(Title, Relese_date, Vote_Average, Vote_Count, Overview, original_language, id_film, genre_id, genre_id_2, genre_id_3, poster_path) VALUES('".$title_fix."','".$release_date."','".$vote_average."','".$vote_count."','".$owerview_fix."','".$original_language."','".$film_id."','".$genre."','".$genre2."','".$genre3."','".$poster."')";
         $query=mysqli_query($connection,$unos);
     }
     exit;
