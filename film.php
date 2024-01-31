@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="header">
-        <a href="http://localhost/Projekt/">
+        <a href="http://localhost/ProjektMaturalni/">
             <img src="slike/ikona.png" id="ikona"/>        
             <h1 id="Naziv-Stranica">Filmovi!</h1>
         </a>
@@ -82,7 +82,7 @@
                 <div id='title-container'>
                     <p id='title-film'>${film.title}</p>
                     <h2 id='tagline'>${film.tagline}</h2>
-                    <p id='film-score'>${film.vote_average} </p><img id='film-star' src='slike/BlackStar.png'/>
+                    <p id='film-score'>${Math.round(film.vote_average * 10) / 10} </p><img id='film-star' src='slike/BlackStar.png'/>
                     <p id='film-info'>| ${film.runtime} min | ${godina[0]} | ${zarnovi}</p>
                     <div id="content-container">
                         <h2>About:</h2>
@@ -119,9 +119,7 @@
             var datum = new Date();
             let sad=datum.getYear()+1900;
             Relese=parseInt(godinaKol[0])
-            if(sad<Relese || godinaKol[0]==""){
-                console.log("Bruh")
-            }else{
+            if(sad>Relese && godinaKol[0]!=""){
                 $("#collection").append(`
                 <form action='film.php' method='GET'>
                     <input type='hidden' name='id' value='${kolekcija.parts[i].id}'/>
@@ -129,13 +127,13 @@
                         <div id='film-collection'>
                             <img id='poster-collection' src='https://www.themoviedb.org/t/p/w1280/${kolekcija.parts[i].backdrop_path}'></img>
                             <p id='title'>${kolekcija.parts[i].title}</p>
-                            <p id='index-score'>${kolekcija.parts[i].vote_average}</p><img id='index-star' src='slike/star.png'></img>
+                            <p id='index-score'>${Math.round(kolekcija.parts[i].vote_average * 10) / 10}</p><img id='index-star' src='slike/star.png'></img>
                             <p id='index-score'> ◦ 20€</p>
                         </div>
                     </button> 
                 </form>
                 `);   
-            }    
+            } 
         }
         $("#content-container").append('</div>');
     }

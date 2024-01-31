@@ -10,7 +10,7 @@
 </head>
 <body>
     <div id="header">
-        <a href="http://localhost/Projekt/">
+        <a href="http://localhost/ProjektMaturalni/">
             <img src="slike/ikona.png" id="ikona"/>        
             <h1 id="Naziv-Stranica">Filmovi!</h1>
         </a>
