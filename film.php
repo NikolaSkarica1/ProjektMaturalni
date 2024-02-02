@@ -42,36 +42,36 @@
         for (let i = 0; i < film.genres.length;) {
             zarnovi+=film.genres[i].name;
             i++;
-            if(i !=film.genres.length){
-                zarnovi+=", ";
-            }
+            if(i !=film.genres.length){zarnovi+=", "}
         }
 
         let jezici="";
         for (let i = 0; i < film.spoken_languages.length;) {
             jezici+=film.spoken_languages[i].english_name;
             i++;
-            if(i !=film.spoken_languages.length){
-                jezici+=", ";
-            }
+            if(i !=film.spoken_languages.length){jezici+=", "}
         }
 
         let kompanije="";
         for (let i = 0; i < film.production_companies.length;) {
             kompanije+=film.production_companies[i].name;
             i++;
-            if(i !=film.production_companies.length){
-                kompanije+=", ";
-            }
+            if(i !=film.production_companies.length){kompanije+=", "}               
         }
 
         let drzave="";
         for (let i = 0; i < film.production_countries.length;) {
             drzave+=film.production_countries[i].name;
             i++;
-            if(i !=film.production_countries.length){
-                drzave+=", ";
-            }
+            if(i !=film.production_countries.length){drzave+=", "}
+        };
+
+        let dir=film.credits.crew.filter(({job})=> job ==='Director');
+        let dirs="";
+        for (let i = 0; i < dir.length;) {
+            dirs+=dir[i].name;
+            i++;
+            if(i !=dir.length){dirs+=", "}
         }
 
         $("body").append(`
@@ -87,6 +87,8 @@
                     <div id="content-container">
                         <h2>About:</h2>
                         <p id="overview">${film.overview}</p><br/>
+                        <h3>Directed by:</h3>
+                        <p>${dirs}</p><br/>
                         <h3>Languages:</h3>
                         <p>${jezici}</p><br/>
                         <h3>Production companies:</h3>
@@ -115,7 +117,6 @@
         const godinaKol=[];
         for (let i = 0; i < kolekcija.parts.length; i++) {
             godinaKol[0]=kolekcija.parts[i].release_date.split("-");
-            console.log(godinaKol[0]);
             var datum = new Date();
             let sad=datum.getYear()+1900;
             Relese=parseInt(godinaKol[0])
