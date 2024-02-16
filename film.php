@@ -32,47 +32,32 @@
     };
 
     async function film() {
-        const response = await fetch('https://api.themoviedb.org/3/movie/'+film_id+'?append_to_response=credits&language=en-US', options);
+        const response = await fetch('https://api.themoviedb.org/3/movie/'+film_id+'?append_to_response=credits%2Cvideos&language=en-US', options);
         const film = await response.json();
         console.log(film);
 
         const godina=film.release_date.split("-");
 
-        let zarnovi="";
-        for (let i = 0; i < film.genres.length;) {
-            zarnovi+=film.genres[i].name;
-            i++;
-            if(i !=film.genres.length){zarnovi+=", "}
-        }
+        var zarnovi = film.genres.map(function(item) {
+            return item['name'];
+        });
 
-        let jezici="";
-        for (let i = 0; i < film.spoken_languages.length;) {
-            jezici+=film.spoken_languages[i].english_name;
-            i++;
-            if(i !=film.spoken_languages.length){jezici+=", "}
-        }
+        var jezici = film.spoken_languages.map(function(item) {
+            return item['english_name'];
+        });
 
-        let kompanije="";
-        for (let i = 0; i < film.production_companies.length;) {
-            kompanije+=film.production_companies[i].name;
-            i++;
-            if(i !=film.production_companies.length){kompanije+=", "}               
-        }
+        var kompanije = film.production_companies.map(function(item) {
+            return item['name'];
+        });
 
-        let drzave="";
-        for (let i = 0; i < film.production_countries.length;) {
-            drzave+=film.production_countries[i].name;
-            i++;
-            if(i !=film.production_countries.length){drzave+=", "}
-        };
+        var drzave = film.production_countries.map(function(item) {
+            return item['name'];
+        });
 
         let dir=film.credits.crew.filter(({job})=> job ==='Director');
-        let dirs="";
-        for (let i = 0; i < dir.length;) {
-            dirs+=dir[i].name;
-            i++;
-            if(i !=dir.length){dirs+=", "}
-        }
+        dir = dir.map(function(item) {
+            return item['name'];
+        });
 
         $("body").append(`
             <img id='backdrop' src='https://www.themoviedb.org/t/p/w1280/${film.backdrop_path}"'/>
@@ -88,7 +73,7 @@
                         <h2>About:</h2>
                         <p id="overview">${film.overview}</p><br/>
                         <h3>Directed by:</h3>
-                        <p>${dirs}</p><br/>
+                        <p>${dir}</p><br/>
                         <h3>Languages:</h3>
                         <p>${jezici}</p><br/>
                         <h3>Production companies:</h3>
@@ -99,48 +84,67 @@
                         <p>${film.budget}$</p>
                         <h3>Revenue:</h3>
                         <p>${film.revenue}$</p>
+                        <div id="actors">
+                            <h2>Actors:</h2>
+                        </div>
                     </div>
                 </div>
             </div>
         `);
+        for (let i = 0; i < film.credits.cast.length; i++) {
+            let actor=film.credits.cast[i];
+            let slika;
+            if(actor.profile_path==null){
+                slika="slike/empty-actor.png";
+            }else{
+                slika='https://www.themoviedb.org/t/p/w1280/'+actor.profile_path;
+            }
+            $("#actors").append(`
+            <div id='actor'>
+                <img src='${slika}' id='actor-img'></img>
+                <h4>${actor.name}</h4>
+                <p>${actor.character}</p>
+            </div>
+            `);
+        }
+
         if(film.belongs_to_collection !=null){
             kolekcija();
         }
         async function kolekcija() {
-        const response = await fetch('https://api.themoviedb.org/3/collection/'+film.belongs_to_collection.id+'?language=en-US', options);
-        const kolekcija = await response.json();
-        console.log(kolekcija);
-        $("#content-container").append(`
-            <h2>${kolekcija.name}:</h2>
-            <div id="collection">
-        `);
-        const godinaKol=[];
-        for (let i = 0; i < kolekcija.parts.length; i++) {
-            godinaKol[0]=kolekcija.parts[i].release_date.split("-");
-            var datum = new Date();
-            let sad=datum.getYear()+1900;
-            Relese=parseInt(godinaKol[0])
-            if(sad>Relese && godinaKol[0]!=""){
-                $("#collection").append(`
-                <form action='film.php' method='GET'>
-                    <input type='hidden' name='id' value='${kolekcija.parts[i].id}'/>
-                    <button type='submit' id='prijelaz'>
-                        <div id='film-collection'>
-                            <img id='poster-collection' src='https://www.themoviedb.org/t/p/w1280/${kolekcija.parts[i].backdrop_path}'></img>
-                            <p id='title'>${kolekcija.parts[i].title}</p>
-                            <p id='index-score'>${Math.round(kolekcija.parts[i].vote_average * 10) / 10}</p><img id='index-star' src='slike/star.png'></img>
-                            <p id='index-score'> ◦ 20€</p>
-                        </div>
-                    </button> 
-                </form>
-                `);   
-            } 
+            const response = await fetch('https://api.themoviedb.org/3/collection/'+film.belongs_to_collection.id+'?language=en-US', options);
+            const kolekcija = await response.json();
+            console.log(kolekcija);
+            $("#content-container").append(`
+                <h2>${kolekcija.name}:</h2>
+                <div id="collection">
+            `);
+            const godinaKol=[];
+            for (let i = 0; i < kolekcija.parts.length; i++) {
+                godinaKol[0]=kolekcija.parts[i].release_date.split("-");
+                var datum = new Date();
+                let sad=datum.getYear()+1900;
+                Relese=parseInt(godinaKol[0])
+                if(sad>Relese && godinaKol[0]!=""){
+                    $("#collection").append(`
+                    <form action='film.php' method='GET'>
+                        <input type='hidden' name='id' value='${kolekcija.parts[i].id}'/>
+                        <button type='submit' id='prijelaz'>
+                            <div id='film-collection'>
+                                <img id='poster-collection' src='https://www.themoviedb.org/t/p/w1280/${kolekcija.parts[i].backdrop_path}'></img>
+                                <p id='title'>${kolekcija.parts[i].title}</p>
+                                <p id='index-score'>${Math.round(kolekcija.parts[i].vote_average * 10) / 10}</p><img id='index-star' src='slike/star.png'></img>
+                                <p id='index-score'> ◦ 20€</p>
+                            </div>
+                        </button> 
+                    </form>
+                    `);   
+                } 
+            }
+            $("#content-container").append('</div>');
         }
-        $("#content-container").append('</div>');
-    }
     }
     film();
-
 
 </script>
 </body>

@@ -218,6 +218,35 @@ h3,p{
     margin-left:4.5%;
     margin-top: 550px;
 }
+#actors{
+    white-space: nowrap;
+    overflow: auto;
+    margin: 0px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+#actor{
+    width: 20%;
+    display:inline-table;
+    white-space: normal;
+    text-align: left;
+    margin:0px;
+    margin-top:7px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    padding: 10px;
+    height: 100%;
+}
+#actor-img{
+    width: 100%;
+    align:center;
+    border-radius: 30px;
+    width: 100%;
+}
+h4{
+    margin:0px;
+}
 #collection{
     white-space: nowrap;
     overflow: auto;
@@ -230,6 +259,7 @@ h3,p{
     white-space: normal;
     text-align: left;
     margin:0px;
+    margin-top:7px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 30px;
