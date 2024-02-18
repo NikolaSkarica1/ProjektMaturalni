@@ -20,7 +20,7 @@
     <div id="a"></div>
 <?php
     $unos=$_GET['select'];
-    echo("<div id='Section-search'><h2 id='RezultatiZa'>Results for '".$unos."'</h2> <br/>");
+    echo("<div id='Section-search'><h2>Results for '".$unos."'</h2> <br/>");
     $connection=mysqli_connect("localhost","root","","baza");
     $select="SELECT * FROM filmovi WHERE title LIKE '%".$unos."%'";
     $selected=mysqli_query($connection,$select);

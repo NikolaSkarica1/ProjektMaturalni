@@ -1,9 +1,8 @@
-body{
+*{
     margin:0px;
 }
 /* HEADER */
 #header{
-    margin: 0px;
     width: 100%;
     height: 80px;
     border-bottom: 2px solid gray;
@@ -42,14 +41,12 @@ body{
     font-size: 70px; 
     padding: 0px; 
     width: 300px;
-    margin: 0px; 
     padding: 2px;    
 }
 #ikona{
     height: 70px;
     float: left;
     width: 70px;
-    margin: 0px; 
     margin-right: 3px;
     padding: 2px;
 }
@@ -71,7 +68,6 @@ a,a:hover, a:visited{
 }
 #film{
     text-align: left;
-    margin:0px;
     margin-bottom: 2px;
     border: 0px;;
     display:inline-table;
@@ -90,10 +86,8 @@ a,a:hover, a:visited{
 #title{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 20px;
-    margin: 0px;
 }
 #index-score{
-    margin: 0px;
     float: left;
     font-size: 20px;
 }
@@ -104,11 +98,9 @@ a,a:hover, a:visited{
 }
 form{
     display:inline-table;
-    margin: 0px;
 }
 #prijelaz{
     visibility: hidden;
-    margin: 0px;
     padding: 0px;
 }
 
@@ -116,9 +108,6 @@ form{
 #section-search{
     margin-left: 4%;
     margin-right: 3%;
-}
-#RezultatiZa{
-    margin: 0px;
 }
 
 /* FILM */
@@ -157,8 +146,7 @@ form{
     color: lightgrey;
     text-shadow: 2px 2px #000000;
     height: 30px;
-    margin: 0px;
-    margin-left: 20px;
+    margin-left: 22px;
     font-style: italic;
 }
 #film-score{
@@ -201,9 +189,6 @@ form{
     color: #000000;
     margin: 0%;
 }
-h3,p{
-    margin:0px;
-}
 #kupi-button{
     width: 280px;
     height: 70px;
@@ -216,21 +201,45 @@ h3,p{
     font-size: 40px;
     position: absolute;
     margin-left:4.5%;
-    margin-top: 550px;
+    margin-top: 520px;
+}
+#trailer-btn{
+    width: 260px;
+    height: 60px;
+    float: left;
+    border-radius: 30px;
+    float: right;
+    border: none;
+    text-align: center;
+    font-size: 40px;
+    position: absolute;
+    margin-left:5.2%;
+    margin-top: 600px;
+}
+#play{
+    width: 60px;
+    height: 60px;
+    float:left;
+    padding: 3px;
+}
+#trailer-txt{
+    padding-top: 5px;
+    padding-right: 35px;
+    color: black;
+    font-size: 400;
+    font-weight: bold;
 }
 #actors{
     white-space: nowrap;
     overflow: auto;
-    margin: 0px;
     margin-bottom: 10px;
-    padding: 10px;
+    padding: 2px;
 }
 #actor{
     width: 20%;
     display:inline-table;
     white-space: normal;
     text-align: left;
-    margin:0px;
     margin-top:7px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 30px;
@@ -244,21 +253,44 @@ h3,p{
     border-radius: 30px;
     width: 100%;
 }
-h4{
-    margin:0px;
+#video{
+    z-index: 1000;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border:none;
+    align-items: center;
+    background-color: rgba(6, 5, 5, 0.616);
+    margin-top: -80px;
+    display: none;
+    position: fixed;
+}
+#video iframe{
+    margin-top: 7%;
+}
+#video button{
+    position: relative;
+    background: none;
+    border: 0px;
+    left: 78%;
+    top: 23%;
+    z-index: 1001;
+}
+#video img{
+    width: 40px;
+    height: 40px;
 }
 #collection{
     white-space: nowrap;
     overflow: auto;
-    margin: 0px;
     margin-bottom: 10px;
+    padding: 2px;
 }
 #film-collection{
     width: 320px;
     display:inline-table;
     white-space: normal;
     text-align: left;
-    margin:0px;
     margin-top:7px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

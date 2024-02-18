@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" href="izgled.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="izgled.css">
-    <title>Document</title>
+    <title>Filmovi!</title>
 </head>
 <body>
     <div id="header">
@@ -14,7 +14,7 @@
             <h1 id="Naziv-Stranica">Filmovi!</h1>
         </a>
         <form action="Search.php" method="GET" id="Search">
-        <input type="text" name="select" id="search-input" placeholder="Search"/>
+            <input type="text" name="select" id="search-input" placeholder="Search"/>
             <button type="submit"><img class="search-slika" src="slike/search.png"></img></button>
         </form>
     </div>
@@ -59,11 +59,14 @@
             return item['name'];
         });
 
+        let trailers=film.videos.results.filter(({type})=> type ==='Trailer');
+
         $("body").append(`
             <img id='backdrop' src='https://www.themoviedb.org/t/p/w1280/${film.backdrop_path}"'/>
             <div id="content">
                 <img id="poster-film" width=250px height=380px src='https://www.themoviedb.org/t/p/w1280/${film.poster_path}"'></img>
                 <button type="submit" id="kupi-button">Buy 20€</button>
+                <button id='trailer-btn' onClick=trailer()><img id='play' src='slike/play.png'/><p id='trailer-txt'>Trailer</p></button>
                 <div id='title-container'>
                     <p id='title-film'>${film.title}</p>
                     <h2 id='tagline'>${film.tagline}</h2>
@@ -83,11 +86,16 @@
                         <h3>Budget:</h3>
                         <p>${film.budget}$</p>
                         <h3>Revenue:</h3>
-                        <p>${film.revenue}$</p>
-                        <div id="actors">
-                            <h2>Actors:</h2>
-                        </div>
+                        <p>${film.revenue}$</p><br/>
+                        <h2>Staring:</h2>
+                        <div id="actors"></div><br/>
                     </div>
+                </div>
+                <div id='video'>
+                    <button onClick=zatvori()><img src="slike/x.png"/></button>
+                    <center>
+                        <iframe width="820" height="560" src="https://www.youtube.com/embed/${trailers[0].key}"/>
+                    </center>
                 </div>
             </div>
         `);
@@ -146,6 +154,12 @@
     }
     film();
 
+    function trailer(){
+        $("#video").css("display", "block");
+    };
+    function zatvori(){
+        $("#video").css("display", "none");
+    }
 </script>
 </body>
 </html>
