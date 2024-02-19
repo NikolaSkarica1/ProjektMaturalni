@@ -95,6 +95,7 @@ a,a:hover, a:visited{
     float: left;
     height: 20px;
     width: 20px;
+    margin-top: 2.5px;
 }
 form{
     display:inline-table;
@@ -207,7 +208,7 @@ form{
     width: 260px;
     height: 60px;
     float: left;
-    border-radius: 30px;
+    border-radius: 20px;
     float: right;
     border: none;
     text-align: center;
@@ -235,8 +236,10 @@ form{
     margin-bottom: 10px;
     padding: 2px;
 }
-#actor{
+#act-form{
     width: 20%;
+}
+#actor{
     display:inline-table;
     white-space: normal;
     text-align: left;
@@ -246,10 +249,10 @@ form{
     margin-bottom: 20px;
     padding: 10px;
     height: 100%;
+    visibility: visible;
 }
 #actor-img{
     width: 100%;
-    align:center;
     border-radius: 30px;
     width: 100%;
 }
@@ -266,14 +269,14 @@ form{
     position: fixed;
 }
 #video iframe{
-    margin-top: 7%;
+    margin-top: 2%;
 }
 #video button{
     position: relative;
     background: none;
     border: 0px;
     left: 78%;
-    top: 23%;
+    top: 12%;
     z-index: 1001;
 }
 #video img{
@@ -304,4 +307,28 @@ form{
     width: 320px;
     visibility: visible;
     border-radius: 30px;
+}
+
+/* ACTORS */
+#actor-info{
+    width: 20%;
+    height: 100%;
+    float: left;
+    border-right: 2px solid gainsboro;
+    padding: 10px;
+    position: fixed;
+    background-color: white;
+}
+#actor-info img{
+    border-radius: 5px;
+    margin-left:5%;
+}
+#actor-info h2,#actor-info h3,#actor-info h4,#actor-info p{
+    margin-left:5%;
+}
+#actor-movies{
+    width:78%;
+    height: 100%;
+    float: left;
+    margin-left:22%;
 }

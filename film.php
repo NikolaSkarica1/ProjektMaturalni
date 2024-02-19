@@ -15,6 +15,7 @@
         </a>
         <form action="Search.php" method="GET" id="Search">
             <input type="text" name="select" id="search-input" placeholder="Search"/>
+            <input type='hidden' name='filter' value='Vote_Count DESC'/>
             <button type="submit"><img class="search-slika" src="slike/search.png"></img></button>
         </form>
     </div>
@@ -55,6 +56,7 @@
         });
 
         let dir=film.credits.crew.filter(({job})=> job ==='Director');
+        console.log(dir);
         dir = dir.map(function(item) {
             return item['name'];
         });
@@ -94,7 +96,7 @@
                 <div id='video'>
                     <button onClick=zatvori()><img src="slike/x.png"/></button>
                     <center>
-                        <iframe width="820" height="560" src="https://www.youtube.com/embed/${trailers[0].key}"/>
+                        <iframe width="860" height="560" src="https://www.youtube.com/embed/${trailers[0].key}"/>
                     </center>
                 </div>
             </div>
@@ -108,11 +110,16 @@
                 slika='https://www.themoviedb.org/t/p/w1280/'+actor.profile_path;
             }
             $("#actors").append(`
-            <div id='actor'>
-                <img src='${slika}' id='actor-img'></img>
-                <h4>${actor.name}</h4>
-                <p>${actor.character}</p>
-            </div>
+            <form action='People.php' method='GET' id='act-form'>
+                <input type='hidden' name='id' value='${actor.id}'/>
+                <button type='submit' id='prijelaz'>
+                    <div id='actor'>
+                        <img src='${slika}' id='actor-img'></img>
+                        <h4>${actor.name}</h4>
+                        <p>${actor.character}</p>
+                    </div>
+                </button> 
+            </form>
             `);
         }
 

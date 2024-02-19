@@ -21,7 +21,7 @@
     };
     
     $("#submit").click(async function(){
-        for (let i = 1; i <= 150; i++) {
+        for (let i = 1; i <= 300; i++) {
             const response = await fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page='+i+'&sort_by=vote_count.desc&without_keywords=softcore%2C%20pink%20film', options);
             const movies = await response.json();
             console.log(movies);

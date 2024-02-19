@@ -16,6 +16,7 @@
         </a>
         <form action="Search.php" method="GET" id="Search">
             <input type="text" name="select" id="search-input" placeholder="Search"/>
+            <input type='hidden' name='filter' value='Vote_Count DESC'/>
             <button type="submit"><img class="search-slika" src="slike/search.png"></img></button>
         </form>
     </div>
