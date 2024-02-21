@@ -359,3 +359,6 @@ form{
     padding: 10px;
     margin: 20px;
 }
+.error {
+    color: #FF0000;
+}

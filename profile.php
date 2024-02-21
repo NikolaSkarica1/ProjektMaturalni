@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +24,16 @@
         </form>
     </div>
     <div id="a"></div>
-    You are loged in
-    <!-- LOG OUT -->
+    You are loged in<br>
+    <form method="POST" action="profile.php">
+        <input type="submit"  name="LogOut" value="Log Out"/>
+    </form>
+<?php
+    echo($_SESSION["username"]);
+    if(isset($_POST["LogOut"])){
+        $_SESSION["isLoggedIn"]=0;
+        header("Location: index.php");
+    }
+?>
 </body>
 </html>

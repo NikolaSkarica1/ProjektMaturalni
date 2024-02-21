@@ -10,9 +10,6 @@ session_start();
     <link rel="stylesheet" type="text/css" href="izgled.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <title>Login</title>
-<style>
-.error {color: #FF0000;}
-</style>
 </head>
 <body>  
     <div id="header">
@@ -29,7 +26,7 @@ session_start();
     <div id="a"></div>
 <?php
 // define variables and set to empty values
-$usernameErr = $nameErr = $LastNameErr = $emailErr = $genderErr = $passwordErr =$passwordConfirmErr = $LOGusernameErr = $LOGpasswordErr = $LOGemailErr = "";
+$usernameErr = $nameErr = $LastNameErr = $emailErr = $genderErr = $passwordErr =$passwordConfirmErr = $LOGusernameErr = $LOGpasswordErr = $LOGemailErr = $error = "";
 $username = $name = $LastName = $email = $gender= $password = $passwordConfirm  = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -47,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $username = test_input($_POST["username"]);
         }
         $mails="SELECT email FROM users WHERE username = '".$_POST["username"]."'";
-        $results=mysqli_query($con,$users);
+        $results=mysqli_query($con,$mails);
         if (empty($_POST["email"])) {
             $emailErr = "Email is required";
         }else if($results->num_rows !== 0) {
@@ -87,10 +84,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         if($usernameErr=="" && $nameErr=="" && $LastNameErr=="" && $emailErr=="" && $genderErr=="" && $passwordErr=="" && $passwordConfirmErr==""){
             $con=mysqli_connect("localhost","root","","baza");
-            $unos="INSERT INTO users(username, email, name, lastName, gender, password) VALUES('".$username."','".$username."','".$name."','".$LastName."','".$gender."','".$password."')";
+            $unos="INSERT INTO users(username, email, name, lastName, gender, password) VALUES('".$username."','".$email."','".$name."','".$LastName."','".$gender."','".$password."')";
             mysqli_query($con,$unos);
             $_SESSION['username']=$username;
-            $_SESSION['isLoggedIn']=true;
+            $_SESSION['isLoggedIn']=1;
             header("Location: index.php");
         }
     }
@@ -106,11 +103,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $username = test_input($_POST["username"]);
         }
         $mails="SELECT email FROM users WHERE username = '".$_POST["username"]."'";
-        $results=mysqli_query($con,$users);
+        $results=mysqli_query($con,$mails);
         if (empty($_POST["email"])) {
             $LOGemailErr = "Email is required";
         }else if($results->num_rows == 0) {
-            $LOGemailErr = "There is no account with this username";
+            $LOGemailErr = "There is no account with this email ";
         } else {
             $email = test_input($_POST["email"]);
         }
@@ -118,6 +115,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $LOGpasswordErr = "Password is required";
         } else {
             $password= test_input($_POST["password"]);
+        }
+        if($username!=="" && $email!=="" && $password!==""){
+            $provjeri="SELECT username, email, password FROM users WHERE username ='".$_POST["username"]."'";
+            $results=mysqli_query($con,$provjeri);
+            $row=mysqli_fetch_array($results);
+            if($row[0]==$username && $row[1]==$email && $row[2]==$password){
+                $_SESSION['username']=$username;
+                $_SESSION['isLoggedIn']=1;
+                header("Location: index.php");
+            }else{
+                $error="Incorect information";
+            }
         }
     }
 }
@@ -131,8 +140,7 @@ function test_input($data) {
 ?>
 <div id="signup">
     <center>
-    <h1>Sign Up</h1>
-    <p><span class="error">* required field</span></p><br>
+    <h1>Sign Up</h1><br/>
     <form method="post">  
         Username: <input type="text" name="username">
         <span class="error">*  <br/><?php echo $usernameErr;?></span>
@@ -165,7 +173,7 @@ function test_input($data) {
 <div id="LogIn">
     <center>
         <h1>Log In</h1>
-        <p><span class="error">* required field</span></p><br>
+        <span class="error"><?php echo $error;?></span><br>
         <form method="post">  
             Username: <input type="text" name="username">
             <span class="error">* <br><?php echo $LOGusernameErr;?></span>
