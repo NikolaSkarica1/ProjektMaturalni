@@ -258,9 +258,7 @@ form{
     visibility: visible;
 }
 #actor-img{
-    width: 100%;
     border-radius: 30px;
-    width: 100%;
 }
 #video{
     z-index: 1000;

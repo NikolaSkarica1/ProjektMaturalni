@@ -25,7 +25,6 @@ session_start();
     </div>
     <div id="a"></div>
 <?php
-// define variables and set to empty values
 $usernameErr = $nameErr = $LastNameErr = $emailErr = $genderErr = $passwordErr =$passwordConfirmErr = $LOGusernameErr = $LOGpasswordErr = $LOGemailErr = $error = "";
 $username = $name = $LastName = $email = $gender= $password = $passwordConfirm  = "";
 
@@ -92,7 +91,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
     if(isset($_POST['login'])){
-        // Dodat login matchaju li sve info
         $users="SELECT username FROM users WHERE username = '".$_POST["username"]."'";
         $results=mysqli_query($con,$users);
         if (empty($_POST["username"])) {

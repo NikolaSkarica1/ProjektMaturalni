@@ -1,3 +1,11 @@
+<?php
+session_start();
+if($_SESSION['isLoggedIn']==1){
+    $stranica="profile.php";
+}else{
+    $stranica="login.php";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +21,7 @@
             <img src="slike/ikona.png" id="ikona"/>        
             <h1 id="Naziv-Stranica">Filmovi!</h1>
         </a>
-        <form action="login.php" method="POST"  id="header-login">
+        <form action=<?php echo($stranica) ?> method="POST"  id="header-login">
             <button type="submit"><img class="search-slika" src="slike/login.png"></img></button>
         </form>
         <form action="Search.php" method="GET" id="Search">
