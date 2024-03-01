@@ -208,7 +208,7 @@ form{
     font-size: 40px;
     position: absolute;
     margin-left:4.5%;
-    margin-top: 520px;
+    margin-top: 530px;
 }
 #trailer-btn{
     width: 260px;
@@ -221,7 +221,7 @@ form{
     font-size: 40px;
     position: absolute;
     margin-left:5.2%;
-    margin-top: 600px;
+    margin-top: 610px;
 }
 #play{
     width: 60px;
@@ -233,7 +233,6 @@ form{
     padding-top: 5px;
     padding-right: 35px;
     color: black;
-    font-size: 400;
     font-weight: bold;
 }
 #actors{

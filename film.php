@@ -30,7 +30,7 @@ if($_SESSION['isLoggedIn']==1){
             <button type="submit"><img class="search-slika" src="slike/search.png"></img></button>
         </form>
     </div>
-    <div id="a"/>
+    <div id="a"></div>
     <div id="container"></div>
 <script>
     var film_id='<?php echo($_GET['id']) ?>';

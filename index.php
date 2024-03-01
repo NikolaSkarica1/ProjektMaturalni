@@ -1,8 +1,13 @@
 <?php
 session_start();
-if($_SESSION['isLoggedIn']==1){
-    $stranica="profile.php";
+if(isset($_SESSION['isLoggedIn'])){
+    if($_SESSION['isLoggedIn']==1){
+        $stranica="profile.php";
+    }else{
+        $stranica="login.php";
+    } 
 }else{
+    $_SESSION['isLoggedIn']=0;
     $stranica="login.php";
 }
 ?>
