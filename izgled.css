@@ -101,7 +101,6 @@ a,a:hover, a:visited{
     float: left;
     height: 20px;
     width: 20px;
-    margin-top: 2.5px;
 }
 form{
     display:inline-table;
@@ -358,4 +357,20 @@ form{
 }
 .error {
     color: #FF0000;
+}
+
+/* Footer */
+#footer{
+    margin-top: 5%;
+    font-size: 20px;
+    width: 100%;
+    float: left;
+}
+#links{
+    padding: 5px;
+}
+#copyright{
+    border-top:2px solid lightgray;
+    text-align: center;
+    padding: 10px;
 }

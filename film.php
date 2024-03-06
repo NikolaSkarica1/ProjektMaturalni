@@ -74,7 +74,7 @@ if($_SESSION['isLoggedIn']==1){
 
         let trailers=film.videos.results.filter(({type})=> type ==='Trailer');
 
-        $("body").append(`
+        $("#container").append(`
             <img id='backdrop' src='https://www.themoviedb.org/t/p/w1280/${film.backdrop_path}"'/>
             <div id="content">
                 <img id="poster-film" width=250px height=380px src='https://www.themoviedb.org/t/p/w1280/${film.poster_path}"'></img>
@@ -179,5 +179,11 @@ if($_SESSION['isLoggedIn']==1){
         $("#video").css("display", "none");
     }
 </script>
+<div id="footer">
+    <div id="copyright">
+        <p>© 2024 Copyright: Nikola Škarica</p>
+        Powered by: <a href="https://www.themoviedb.org"><img src="slike/tmdb.svg" width="200px"/></a>
+    </div>
+</div>
 </body>
 </html>

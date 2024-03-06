@@ -186,5 +186,11 @@ function test_input($data) {
         </form>
     </center>
 </div>
+<div id="footer">
+        <div id="copyright">
+            <p>© 2024 Copyright: Nikola Škarica</p>
+            Powered by: <a href="https://www.themoviedb.org"><img src="slike/tmdb.svg" width="200px"/></a>
+        </div>
+    </div>
 </body>
 </html>

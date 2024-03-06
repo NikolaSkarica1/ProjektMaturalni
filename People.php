@@ -68,6 +68,13 @@ if($_SESSION['isLoggedIn']==1){
                 <h4>Birthday: ${actor.birthday}</h4><br/>
                 <h4>Place of birth: ${actor.place_of_birth}</h4><br/>
                 <h4>Gender:${gen}</h4>
+                
+                <div id="footer">
+                    <div id="copyright">
+                        <p>© 2024 Copyright: Nikola Škarica</p>
+                        Powered by: <a href="https://www.themoviedb.org"><img src="slike/tmdb.svg" width="200px"/></a>
+                    </div>
+                </div>
             </div>
             <div id='actor-movies'>
                 <h1>Known for:</h1>

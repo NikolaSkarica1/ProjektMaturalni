@@ -68,7 +68,6 @@ if(isset($_SESSION['isLoggedIn'])){
             }
         }
         array_push($opcije,$nasumicni);
-
         $selected=mysqli_query($connection,$zarnovi[$nasumicni][1]);
         echo("
             <h2 id='SectionTitle'>".$zarnovi[$nasumicni][0]."</h2>
@@ -94,5 +93,11 @@ if(isset($_SESSION['isLoggedIn'])){
         ");
     }
 ?>
+<div id="footer">
+    <div id="copyright">
+        <p>© 2024 Copyright: Nikola Škarica</p>
+        Powered by: <a href="https://www.themoviedb.org"><img src="slike/tmdb.svg" width="200px"/></a>
+    </div>
+</div>
 </body>
 </html>
