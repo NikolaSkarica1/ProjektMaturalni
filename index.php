@@ -94,10 +94,8 @@ if(isset($_SESSION['isLoggedIn'])){
     }
 ?>
 <div id="footer">
-    <div id="copyright">
-        <p>© 2024 Copyright: Nikola Škarica</p>
-        Powered by: <a href="https://www.themoviedb.org"><img src="slike/tmdb.svg" width="200px"/></a>
-    </div>
+    <p>© 2024 Copyright: Nikola Škarica</p>
+    Powered by: <a href="https://www.themoviedb.org"><img src="slike/tmdb.svg" width="200px"/></a>
 </div>
 </body>
 </html>

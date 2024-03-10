@@ -195,32 +195,31 @@ form{
     color: #000000;
     margin: 0%;
 }
+#buttons{
+    position: absolute;
+    margin-left:4.5%;
+    margin-top: 530px;
+}
 #kupi-button{
     width: 280px;
     height: 70px;
     float: left;
     border-radius: 30px;
-    background-color: red;
     border: none;
+    background-color: red;
     color: white;
     font-weight: bolder;
     font-size: 40px;
-    position: absolute;
-    margin-left:4.5%;
-    margin-top: 530px;
 }
 #trailer-btn{
     width: 260px;
     height: 60px;
     float: left;
     border-radius: 20px;
-    float: right;
-    border: none;
-    text-align: center;
+    border: none; 
     font-size: 40px;
-    position: absolute;
-    margin-left:5.2%;
-    margin-top: 610px;
+    margin-left:3.6%;
+    margin-top: 10px;
 }
 #play{
     width: 60px;
@@ -365,12 +364,8 @@ form{
     font-size: 20px;
     width: 100%;
     float: left;
-}
-#links{
-    padding: 5px;
-}
-#copyright{
     border-top:2px solid lightgray;
     text-align: center;
-    padding: 10px;
+    padding-bottom: 15px;
+    padding-top: 5px;
 }

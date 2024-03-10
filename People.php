@@ -64,16 +64,14 @@ if($_SESSION['isLoggedIn']==1){
             <div id='actor-info'>
                 <img width='90%' src='${slika}'></img>
                 <h2>Personal info:</h2>
-                <h3>Name: ${actor.name}</h3><br/>
-                <h4>Birthday: ${actor.birthday}</h4><br/>
-                <h4>Place of birth: ${actor.place_of_birth}</h4><br/>
+                <h3>Name: ${actor.name}</h3>
+                <h4>Birthday: ${actor.birthday}</h4>
+                <h4>Place of birth: ${actor.place_of_birth}</h4>
                 <h4>Gender:${gen}</h4>
                 
                 <div id="footer">
-                    <div id="copyright">
-                        <p>© 2024 Copyright: Nikola Škarica</p>
-                        Powered by: <a href="https://www.themoviedb.org"><img src="slike/tmdb.svg" width="200px"/></a>
-                    </div>
+                    <p>© 2024 Copyright: Nikola Škarica</p>
+                    Powered by: <a href="https://www.themoviedb.org"><img src="slike/tmdb.svg" width="200px"/></a>
                 </div>
             </div>
             <div id='actor-movies'>

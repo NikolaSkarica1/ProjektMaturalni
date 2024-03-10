@@ -39,14 +39,14 @@ if($_SESSION['isLoggedIn']==1){
         Sort by:
         <input type='hidden' name='select' value='<?php echo($unos)?>'>
         <select name='filter'>  
-            <option value="Vote_Count DESC">Popularity DESC</option>  
-            <option value="Vote_Count ASC">Popularity ASC</option>   
-            <option value="Title ASC">Alphabetical (A>Z)</option>
-            <option value="Title DESC">Alphabetical (Z>A)</option>  
             <option value="Relese_date DESC">Newest</option>  
             <option value="Relese_date ASC">Oldest</option>  
             <option value="Vote_Average DESC">Heigest rated</option>  
             <option value="Vote_Average ASC">Lowest rated</option>  
+            <option value="Vote_Count DESC">Popularity DESC</option>  
+            <option value="Vote_Count ASC">Popularity ASC</option>   
+            <option value="Title ASC">Alphabetical (A>Z)</option>
+            <option value="Title DESC">Alphabetical (Z>A)</option>  
         </select> 
         <input type='submit' value='Search'>
     </form><br/>
@@ -73,10 +73,8 @@ if($_SESSION['isLoggedIn']==1){
     echo("</div>")
 ?>  
 <div id="footer">
-    <div id="copyright">
-        <p>© 2024 Copyright: Nikola Škarica</p>
-        Powered by: <a href="https://www.themoviedb.org"><img src="slike/tmdb.svg" width="200px"/></a>
-    </div>
+    <p>© 2024 Copyright: Nikola Škarica</p>
+    Powered by: <a href="https://www.themoviedb.org"><img src="slike/tmdb.svg" width="200px"/></a>
 </div>
 </body>
 </html>

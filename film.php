@@ -67,19 +67,23 @@ if($_SESSION['isLoggedIn']==1){
         });
 
         let dir=film.credits.crew.filter(({job})=> job ==='Director');
-        console.log(dir);
         dir = dir.map(function(item) {
             return item['name'];
         });
 
-        let trailers=film.videos.results.filter(({type})=> type ==='Trailer');
+        let trailers="";
+        try {
+            trailers=film.videos.results.filter(({type})=> type ==='Trailer')[0].key;
+        }catch{}
+        console.log(trailers)
 
         $("#container").append(`
             <img id='backdrop' src='https://www.themoviedb.org/t/p/w1280/${film.backdrop_path}"'/>
             <div id="content">
                 <img id="poster-film" width=250px height=380px src='https://www.themoviedb.org/t/p/w1280/${film.poster_path}"'></img>
-                <button type="submit" id="kupi-button">Buy 20€</button>
-                <button id='trailer-btn' onClick=trailer()><img id='play' src='slike/play.png'/><p id='trailer-txt'>Trailer</p></button>
+                <div id="buttons">
+                    <button type="submit" id="kupi-button">Buy 20€</button>
+                </div>
                 <div id='title-container'>
                     <p id='title-film'>${film.title}</p>
                     <h2 id='tagline'>${film.tagline}</h2>
@@ -104,14 +108,20 @@ if($_SESSION['isLoggedIn']==1){
                         <div id="actors"></div><br/>
                     </div>
                 </div>
-                <div id='video'>
-                    <button onClick=zatvori()><img src="slike/x.png"/></button>
-                    <center>
-                        <iframe width="860" height="560" src="https://www.youtube.com/embed/${trailers[0].key}"/>
-                    </center>
-                </div>
+                <div id='video'></div>
             </div>
         `);
+        if(trailers!=""){
+            $("#buttons").append(`
+                <br><button id='trailer-btn' onClick=trailer()><img id='play' src='slike/play.png'/><p id='trailer-txt'>Trailer</p></button>
+            `);
+            $("#video").append(`
+                <button onClick=zatvori()><img src="slike/x.png"/></button>
+                <center>
+                    <iframe width="860" height="560" src="https://www.youtube.com/embed/${trailers}"/>
+                </center>
+            `);
+        }
         for (let i = 0; i < film.credits.cast.length; i++) {
             let actor=film.credits.cast[i];
             let slika;
@@ -137,10 +147,10 @@ if($_SESSION['isLoggedIn']==1){
         if(film.belongs_to_collection !=null){
             kolekcija();
         }
+
         async function kolekcija() {
             const response = await fetch('https://api.themoviedb.org/3/collection/'+film.belongs_to_collection.id+'?language=en-US', options);
             const kolekcija = await response.json();
-            console.log(kolekcija);
             $("#content-container").append(`
                 <h2>${kolekcija.name}:</h2>
                 <div id="collection">
@@ -151,7 +161,7 @@ if($_SESSION['isLoggedIn']==1){
                 var datum = new Date();
                 let sad=datum.getYear()+1900;
                 Relese=parseInt(godinaKol[0])
-                if(sad>Relese && godinaKol[0]!=""){
+                if(sad>=Relese && godinaKol[0]!=""){
                     $("#collection").append(`
                     <form action='film.php' method='GET'>
                         <input type='hidden' name='id' value='${kolekcija.parts[i].id}'/>
@@ -180,10 +190,8 @@ if($_SESSION['isLoggedIn']==1){
     }
 </script>
 <div id="footer">
-    <div id="copyright">
-        <p>© 2024 Copyright: Nikola Škarica</p>
-        Powered by: <a href="https://www.themoviedb.org"><img src="slike/tmdb.svg" width="200px"/></a>
-    </div>
+    <p>© 2024 Copyright: Nikola Škarica</p>
+    Powered by: <a href="https://www.themoviedb.org"><img src="slike/tmdb.svg" width="200px"/></a>
 </div>
 </body>
 </html>
