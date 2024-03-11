@@ -82,7 +82,7 @@ if($_SESSION['isLoggedIn']==1){
             <div id="content">
                 <img id="poster-film" width=250px height=380px src='https://www.themoviedb.org/t/p/w1280/${film.poster_path}"'></img>
                 <div id="buttons">
-                    <button type="submit" id="kupi-button">Buy 20€</button>
+                    <button id="kupi-button" onClick=Kupi()>Buy 20€</button>
                 </div>
                 <div id='title-container'>
                     <p id='title-film'>${film.title}</p>
@@ -92,6 +92,8 @@ if($_SESSION['isLoggedIn']==1){
                     <div id="content-container">
                         <h2>About:</h2>
                         <p id="overview">${film.overview}</p><br/>
+                        <h2>Staring:</h2>
+                        <div id="actors"></div><br/>
                         <h3>Directed by:</h3>
                         <p>${dir}</p><br/>
                         <h3>Languages:</h3>
@@ -104,8 +106,6 @@ if($_SESSION['isLoggedIn']==1){
                         <p>${film.budget}$</p>
                         <h3>Revenue:</h3>
                         <p>${film.revenue}$</p><br/>
-                        <h2>Staring:</h2>
-                        <div id="actors"></div><br/>
                     </div>
                 </div>
                 <div id='video'></div>
@@ -187,6 +187,17 @@ if($_SESSION['isLoggedIn']==1){
     };
     function zatvori(){
         $("#video").css("display", "none");
+    }
+
+    function Kupi(){
+        $.ajax({
+            type:"POST",
+            data:{film_id : film_id},
+            url:"kupi.php",
+            success: function(data) {
+                alert(data);
+            }
+        });
     }
 </script>
 <div id="footer">
