@@ -39,16 +39,16 @@ if($_SESSION['isLoggedIn']==1){
         Sort by:
         <input type='hidden' name='select' value='<?php echo($unos)?>'>
         <select name='filter'>  
+            <option value="Vote_Count DESC">Popularity DESC</option>  
+            <option value="Vote_Count ASC">Popularity ASC</option>   
             <option value="Relese_date DESC">Newest</option>  
             <option value="Relese_date ASC">Oldest</option>  
             <option value="Vote_Average DESC">Heigest rated</option>  
             <option value="Vote_Average ASC">Lowest rated</option>  
-            <option value="Vote_Count DESC">Popularity DESC</option>  
-            <option value="Vote_Count ASC">Popularity ASC</option>   
             <option value="Title ASC">Alphabetical (A>Z)</option>
             <option value="Title DESC">Alphabetical (Z>A)</option>  
         </select> 
-        <input type='submit' value='Search'>
+        <input type='submit' value='Filter'>
     </form><br/>
 <?php
     $connection=mysqli_connect("localhost","root","","baza");
@@ -64,7 +64,7 @@ if($_SESSION['isLoggedIn']==1){
                     <img id='poster-index' src='https://www.themoviedb.org/t/p/w1280/".$value['poster_path']."'></img>
                     <p id='title'>".$value['Title']."</p>
                     <p id='index-score'>".$value['Vote_Average']."</p><img id='index-star' src='slike/star.png'></img>
-                    <p id='index-score'>".$parts[0]."</p>
+                    <p id='index-score'>|".$parts[0]."</p>
                 </diV>
             </button> 
         </form>

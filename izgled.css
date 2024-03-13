@@ -1,6 +1,9 @@
 *{
     margin:0px;
 }
+body{
+
+}
 /* HEADER */
 #header{
     width: 100%;
@@ -67,6 +70,7 @@ a,a:hover, a:visited{
     padding: 15px;
     white-space: nowrap;
     overflow: auto;
+    -webkit-mask: linear-gradient(-90deg, rgba(0,0,0,0) 3%, rgba(0,0,0,1) 25%);
 }
 #SectionTitle{
     margin-bottom: -10px;
@@ -112,8 +116,8 @@ form{
 
 /* SEARCH */
 #section-search{
-    margin-left: 4%;
-    margin-right: 3%;
+    margin-left:8%;
+    margin-right: 8%;
 }
 
 /* FILM */
@@ -368,4 +372,26 @@ form{
     text-align: center;
     padding-bottom: 15px;
     padding-top: 5px;
+}
+
+/* PROFIL */
+#profil_filmovi{
+    margin-left:8%;
+    margin-right: 8%;
+}
+#profile-info{
+    margin-left: 10%;
+    margin-right: 20%;
+}
+#ProfileLogOut{
+    float: right;
+    height: 50px;
+    width: 50px;
+}
+#logout-form{
+    float: right;
+}
+#logout-btn{
+    position: absolute;
+    top: 11%;
 }

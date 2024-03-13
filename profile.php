@@ -24,22 +24,22 @@ session_start();
         </form>
     </div>
     <div id="a"></div>
-    You are loged in<br>
-    <form method="POST" action="profile.php">
-        <input type="submit"  name="LogOut" value="Log Out"/>
-    </form>
-    <div id='Section-search'><br/>
+    <div id="profile-info">
+        <h1>Dobro došli: <?php echo($_SESSION["username"]."<br>"); ?></h1>
+        <form method="POST" action="profile.php" id= "logout-form"> 
+            <button type="submit"  name="LogOut" value="Log Out" id="logout-btn"><img  id="ProfileLogOut" src="slike/logout.png"></button>
+        </form>
+    </div><br><br><br><hr>
+    <div id='profil_filmovi'><br/>
+        <h2>Kupljeni filmovi:</h2>
 <?php
     if(isset($_POST["LogOut"])){
         $_SESSION["isLoggedIn"]=0;
         header("Location: index.php");
-    }
-    
-    echo($_SESSION["username"]."<br>");
+    } 
     $connection=mysqli_connect("localhost","root","","baza");
     $kupljeni="SELECT * FROM kupljeno WHERE username='".$_SESSION['username']."'";;
     $query=mysqli_query($connection,$kupljeni);
-    echo("<h2>Vaši filmovi:</h2>");
     foreach ($query as $key => $value) {
         $film="SELECT * FROM filmovi WHERE id_film=".$value['id_film'];
         $filmovi=mysqli_query($connection,$film);
@@ -53,7 +53,7 @@ session_start();
                         <img id='poster-index' src='https://www.themoviedb.org/t/p/w1280/".$value['poster_path']."'></img>
                         <p id='title'>".$value['Title']."</p>
                         <p id='index-score'>".$value['Vote_Average']."</p><img id='index-star' src='slike/star.png'></img>
-                        <p id='index-score'>".$parts[0]."</p>
+                        <p id='index-score'>|".$parts[0]."</p>
                     </diV>
                 </button> 
             </form>
@@ -62,5 +62,9 @@ session_start();
     }
     echo("</div>");
 ?>
+<div id="footer">
+    <p>© 2024 Copyright: Nikola Škarica</p>
+    Powered by: <a href="https://www.themoviedb.org"><img src="slike/tmdb.svg" width="200px"/></a>
+</div>
 </body>
 </html>
