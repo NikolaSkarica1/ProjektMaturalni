@@ -24,26 +24,48 @@ session_start();
         </form>
     </div>
     <div id="a"></div>
+    <?php
+        if(isset($_GET['submit'])){
+            $sort=$_GET['filter'];
+        }else{
+            $sort="`kupljeno`.`kupljeno` ASC";
+        }
+    ?>
     <div id="profile-info">
         <h1>Dobro došli: <?php echo($_SESSION["username"]."<br>"); ?></h1>
         <form method="POST" action="profile.php" id= "logout-form"> 
             <button type="submit"  name="LogOut" value="Log Out" id="logout-btn"><img  id="ProfileLogOut" src="slike/logout.png"></button>
         </form>
-    </div><br><br><br><hr>
+    </div><br>
     <div id='profil_filmovi'><br/>
-        <h2>Kupljeni filmovi:</h2>
+        <h2>Your Movies:</h2>
+        <form action='profile.php' method='GET'>
+            Sort by:
+            <select name='filter'>  
+                <option value="`filmovi`.Vote_Count DESC">Popularity DESC</option>  
+                <option value="`filmovi`.Vote_Count ASC">Popularity ASC</option>   
+                <option value="`filmovi`.Relese_date DESC">Newest</option>  
+                <option value="`filmovi`.Relese_date ASC">Oldest</option>  
+                <option value="`filmovi`.Vote_Average DESC">Heigest rated</option>  
+                <option value="`filmovi`.Vote_Average ASC">Lowest rated</option>  
+                <option value="`filmovi`.Title ASC">Alphabetical (A>Z)</option>
+                <option value="`filmovi`.Title DESC">Alphabetical (Z>A)</option>  
+            </select> 
+            <input type='submit' value='Filter' name="submit">
+        </form><br/>
 <?php
     if(isset($_POST["LogOut"])){
         $_SESSION["isLoggedIn"]=0;
         header("Location: index.php");
     } 
     $connection=mysqli_connect("localhost","root","","baza");
-    $kupljeni="SELECT * FROM kupljeno WHERE username='".$_SESSION['username']."'";;
+    $kupljeni="SELECT * FROM `kupljeno` LEFT JOIN filmovi ON kupljeno.id_film= filmovi.id_film WHERE kupljeno.username = '".$_SESSION['username']."' ORDER BY ".$sort;
     $query=mysqli_query($connection,$kupljeni);
-    foreach ($query as $key => $value) {
-        $film="SELECT * FROM filmovi WHERE id_film=".$value['id_film'];
-        $filmovi=mysqli_query($connection,$film);
-        foreach ($filmovi as $key => $value) {
+    $rows=mysqli_num_rows($query);
+    if($rows === 0){
+        echo("You haven't bought any movies");
+    }else{
+        foreach ($query as $key => $value) {
             $parts = explode('-', $value['Relese_date']);
             echo("
             <form action='film.php' method='GET'>

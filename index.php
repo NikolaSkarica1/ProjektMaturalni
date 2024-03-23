@@ -46,7 +46,7 @@ if(isset($_SESSION['isLoggedIn'])){
         array("Romance","SELECT * FROM `filmovi` WHERE genre_id = 10749 or genre_id_2 = 10749 LIMIT 15"),
         array("Sci-Fi","SELECT * FROM `filmovi` WHERE genre_id = 878 LIMIT 15"),
         array("Fantasy","SELECT * FROM `filmovi` WHERE genre_id = 14 or genre_id_2 = 14 LIMIT 15"),
-        array("Animation","SELECT * FROM `filmovi` WHERE genre_id = 16 or genre_id_2 = 16 LIMIT 15"),
+        array("Animation","SELECT * FROM `filmovi` WHERE genre_id = 16 LIMIT 15"),
         array("Comedy","SELECT * FROM `filmovi` WHERE genre_id = 35 LIMIT 15"),
         array("Crime","SELECT * FROM `filmovi` WHERE genre_id = 80 LIMIT 15"),
         array("Drama","SELECT * FROM `filmovi` WHERE genre_id = 18 LIMIT 15"),
@@ -55,7 +55,7 @@ if(isset($_SESSION['isLoggedIn'])){
         array("Mistery","SELECT * FROM `filmovi` WHERE genre_id = 9648 LIMIT 15"),
         array("Thriller","SELECT * FROM `filmovi` WHERE genre_id = 53 LIMIT 15"),
         array("War","SELECT * FROM `filmovi` WHERE genre_id = 10752 LIMIT 15"),
-        array("Western","SELECT * FROM `filmovi` WHERE genre_id = 37 or genre_id_2 = 37 LIMIT 15")
+        array("Western","SELECT * FROM `filmovi` WHERE genre_id = 37 LIMIT 15")
     );
     $connection=mysqli_connect("localhost","root","","baza");
     $opcije=array("");
