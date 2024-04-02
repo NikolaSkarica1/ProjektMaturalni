@@ -7,7 +7,8 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="izgled.css">
+    <link rel="stylesheet" type="text/css" href="design/login.css">
+    <link rel="stylesheet" type="text/css" href="design/Header.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <title>Login</title>
 </head>

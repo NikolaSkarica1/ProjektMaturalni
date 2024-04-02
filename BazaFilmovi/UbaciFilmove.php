@@ -1,7 +1,6 @@
 <?php
     $primljeno=$_POST['myJSONText'];
     $data = json_decode($primljeno,true);
-    var_dump($data[0]);
     $connection=mysqli_connect("localhost","root","","baza");
 
     for ($i=0; $i < count($data); $i++) { 

@@ -9,7 +9,8 @@ if($_SESSION['isLoggedIn']==1){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="izgled.css">
+    <link rel="stylesheet" type="text/css" href="design/people.css">
+    <link rel="stylesheet" type="text/css" href="design/Header.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -43,7 +44,6 @@ if($_SESSION['isLoggedIn']==1){
     async function logMovies() {
         const response = await fetch('https://api.themoviedb.org/3/person/'+<?php echo($_GET['id']) ?>+'?append_to_response=credits&language=en-US', options);
         const actor = await response.json();
-        console.log(actor);
         let gen;
         if(actor.gender==1){
             gen="Female"

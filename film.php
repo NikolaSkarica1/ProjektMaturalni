@@ -9,7 +9,8 @@ if($_SESSION['isLoggedIn']==1){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="izgled.css">
+    <link rel="stylesheet" type="text/css" href="design/film.css">
+    <link rel="stylesheet" type="text/css" href="design/Header.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -46,7 +47,6 @@ if($_SESSION['isLoggedIn']==1){
     async function film() {
         const response = await fetch('https://api.themoviedb.org/3/movie/'+film_id+'?append_to_response=credits%2Cvideos&language=en-US', options);
         const film = await response.json();
-        console.log(film);
 
         const godina=film.release_date.split("-");
 
@@ -75,7 +75,6 @@ if($_SESSION['isLoggedIn']==1){
         try {
             trailers=film.videos.results.filter(({type})=> type ==='Trailer')[0].key;
         }catch{}
-        console.log(trailers)
 
         $("#container").append(`
             <img id='backdrop' src='https://www.themoviedb.org/t/p/w1280/${film.backdrop_path}"'/>
