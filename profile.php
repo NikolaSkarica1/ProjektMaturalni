@@ -33,7 +33,7 @@ session_start();
         }
     ?>
     <div id="profile-info">
-        <h1>Dobro došli: <?php echo($_SESSION["username"]."<br>"); ?></h1>
+        <h1>Welcome: <?php echo($_SESSION["username"]."<br>"); ?></h1>
         <form method="POST" action="profile.php" id= "logout-form"> 
             <button type="submit"  name="LogOut" value="Log Out" id="logout-btn"><img  id="ProfileLogOut" src="slike/logout.png"></button>
         </form>

@@ -50,7 +50,7 @@ if($_SESSION['isLoggedIn']==1){
         }else if(actor.gender==2){
             gen="Male"
         }else if(actor.gender==3){
-            gen="Non-binary"
+            gen="Other"
         }
 
         let slika;
@@ -62,12 +62,12 @@ if($_SESSION['isLoggedIn']==1){
 
         $("body").append(`
             <div id='actor-info'>
-                <img width='90%' src='${slika}'></img>
+                <img width='90%' src='${slika}' id="img"></img>
                 <h2>Personal info:</h2>
                 <h3>Name: ${actor.name}</h3>
                 <h4>Birthday: ${actor.birthday}</h4>
                 <h4>Place of birth: ${actor.place_of_birth}</h4>
-                <h4>Gender:${gen}</h4>
+                <h4>Gender: ${gen}</h4>
                 
                 <div id="footer">
                     <p>© 2024 Copyright: Nikola Škarica</p>

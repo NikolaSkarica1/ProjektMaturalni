@@ -5,6 +5,15 @@ if($_SESSION['isLoggedIn']==1){
 }else{
     $stranica="login.php";
 }
+$connection=mysqli_connect("localhost","root","","baza");
+$film_id=$_GET['id'];
+$provjera=mysqli_query($connection,"SELECT * FROM filmovi WHERE id_film =".$film_id);
+if($provjera->num_rows == 0){
+    $dostupno=0;
+}else{
+    $dostupno=1;
+}
+mysqli_close($connection);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +23,8 @@ if($_SESSION['isLoggedIn']==1){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
     <title>Filmovi!</title>
 </head>
 <body>
@@ -81,7 +92,7 @@ if($_SESSION['isLoggedIn']==1){
             <div id="content">
                 <img id="poster-film" width=250px height=380px src='https://www.themoviedb.org/t/p/w1280/${film.poster_path}"'></img>
                 <div id="buttons">
-                    <button id="kupi-button" onClick=Kupi()>Buy 20€</button>
+                    
                 </div>
                 <div id='title-container'>
                     <p id='title-film'>${film.title}</p>
@@ -92,7 +103,7 @@ if($_SESSION['isLoggedIn']==1){
                         <h2>About:</h2>
                         <p id="overview">${film.overview}</p><br/>
                         <h2>Staring:</h2>
-                        <div id="actors"></div><br/>
+                        <div id="actors"></div>
                         <h3>Directed by:</h3>
                         <p>${dir}</p><br/>
                         <h3>Languages:</h3>
@@ -110,6 +121,12 @@ if($_SESSION['isLoggedIn']==1){
                 <div id='video'></div>
             </div>
         `);
+        let dostupno="<?php echo($dostupno)?>";
+        if(dostupno ==1){
+            $("#buttons").append(`
+                <button id="kupi-button" onClick=Kupi()>Buy 20€</button>
+            `);
+        }
         if(trailers!=""){
             $("#buttons").append(`
                 <br><button id='trailer-btn' onClick=trailer()><img id='play' src='slike/play.png'/><p id='trailer-txt'>Trailer</p></button>
@@ -167,9 +184,11 @@ if($_SESSION['isLoggedIn']==1){
                         <button type='submit' id='prijelaz'>
                             <div id='film-collection'>
                                 <img id='poster-collection' src='https://www.themoviedb.org/t/p/w1280/${kolekcija.parts[i].backdrop_path}'></img>
-                                <p id='title'>${kolekcija.parts[i].title}</p>
-                                <p id='index-score'>${Math.round(kolekcija.parts[i].vote_average * 10) / 10}</p><img id='index-star' src='slike/star.png'></img>
-                                <p id='index-score'> ◦ 20€</p>
+                                <div id="txt-collection">
+                                    <p id='title'>${kolekcija.parts[i].title}</p>
+                                    <p id='index-score'>${Math.round(kolekcija.parts[i].vote_average * 10) / 10}</p><img id='index-star' src='slike/star.png'></img>
+                                    <p id='index-score'> ◦ 20€</p>
+                                </div>
                             </div>
                         </button> 
                     </form>
@@ -189,16 +208,51 @@ if($_SESSION['isLoggedIn']==1){
     }
 
     function Kupi(){
-        $.ajax({
-            type:"POST",
-            data:{film_id : film_id},
-            url:"kupi.php",
-            success: function(data) {
-                alert(data);
+        let prov;
+        if('<?php echo($_SESSION['isLoggedIn'])?>'==1){
+            $.ajax({
+                type:"POST",
+                data:{film_id : film_id},
+                url:"Kupovanje/Provjeri.php",
+                success: function(data) {
+                    prov=data;
+                }
+            });
+            if(prov==1){
+                $("#dialog").dialog({
+                    "title": "Are you sure",
+                    modal: true,
+                    "width": 270,
+                    "height": 200,
+                    "allowScrolling": false,
+                    buttons:{
+                        'Confirm':function(){
+                            $.ajax({
+                                type:"POST",
+                                data:{film_id : film_id},
+                                url:"Kupovanje/kupi.php",
+                                success: function(data) {
+                                    alert(data);
+                                }
+                            });
+                            $("#dialog").dialog("close");
+                        },'Cancel':function(){
+                            $("#dialog").dialog("close");
+                        }
+                    }
+                });
+            }else{
+                alert("You have already bought the movie.");
             }
-        });
+        }else{
+            alert("You need to log in first.");
+        }
+
     }
 </script>
+<div id="dialog">
+    <p>Please confirm if you want to pourchuse this title</p>
+</div>
 <div id="footer">
     <p>© 2024 Copyright: Nikola Škarica</p>
     Powered by: <a href="https://www.themoviedb.org"><img src="slike/tmdb.svg" width="200px"/></a>
