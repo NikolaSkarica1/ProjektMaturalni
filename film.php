@@ -216,34 +216,34 @@ mysqli_close($connection);
                 url:"Kupovanje/Provjeri.php",
                 success: function(data) {
                     prov=data;
+                    if(prov==1){
+                        $("#dialog").dialog({
+                            "title": "Are you sure",
+                            modal: true,
+                            "width": 270,
+                            "height": 200,
+                            "allowScrolling": false,
+                            buttons:{
+                                'Confirm':function(){
+                                    $.ajax({
+                                        type:"POST",
+                                        data:{film_id : film_id},
+                                        url:"Kupovanje/kupi.php",
+                                        success: function(data) {
+                                            alert(data);
+                                        }
+                                    });
+                                    $("#dialog").dialog("close");
+                                },'Cancel':function(){
+                                    $("#dialog").dialog("close");
+                                }
+                            }
+                        });
+                    }else{
+                        alert("You have already bought the movie.");
+                    }
                 }
             });
-            if(prov==1){
-                $("#dialog").dialog({
-                    "title": "Are you sure",
-                    modal: true,
-                    "width": 270,
-                    "height": 200,
-                    "allowScrolling": false,
-                    buttons:{
-                        'Confirm':function(){
-                            $.ajax({
-                                type:"POST",
-                                data:{film_id : film_id},
-                                url:"Kupovanje/kupi.php",
-                                success: function(data) {
-                                    alert(data);
-                                }
-                            });
-                            $("#dialog").dialog("close");
-                        },'Cancel':function(){
-                            $("#dialog").dialog("close");
-                        }
-                    }
-                });
-            }else{
-                alert("You have already bought the movie.");
-            }
         }else{
             alert("You need to log in first.");
         }
