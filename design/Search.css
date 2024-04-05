@@ -2,6 +2,18 @@
     margin-left:4%;
     margin-right: 4%;
 }
+#select{
+    background: none;
+    border: none;
+    border-bottom: 2px solid black;
+}
+#FilterBtn{
+    background: none;
+    border: 2px solid black;
+}
+#nothing{
+    height: 350px;
+}
 #film{
     text-align: left;
     margin-bottom: 2px;
@@ -39,4 +51,12 @@ form{
 #prijelaz{
     visibility: hidden;
     padding: 0px;
+}
+#search-inputt{
+    border: 3px solid black;
+    width: 300px;
+    height: 46px;
+    border-radius: 10px;
+    font-size: 20px;
+    float: left;
 }

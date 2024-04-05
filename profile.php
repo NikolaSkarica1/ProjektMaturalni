@@ -33,27 +33,13 @@ session_start();
         }
     ?>
     <div id="profile-info">
-        <h1>Welcome: <?php echo($_SESSION["username"]."<br>"); ?></h1>
+        <h1 id="welcome">Welcome: <?php echo($_SESSION["username"]."<br>"); ?></h1>
         <form method="POST" action="profile.php" id= "logout-form"> 
             <button type="submit"  name="LogOut" value="Log Out" id="logout-btn"><img  id="ProfileLogOut" src="slike/logout.png"></button>
         </form>
-    </div><br>
+    </div><br><hr>
     <div id='profil_filmovi'><br/>
         <h2>Your Movies:</h2>
-        <form action='profile.php' method='GET'>
-            Sort by:
-            <select name='filter'>  
-                <option value="`filmovi`.Vote_Count DESC">Popularity DESC</option>  
-                <option value="`filmovi`.Vote_Count ASC">Popularity ASC</option>   
-                <option value="`filmovi`.Relese_date DESC">Newest</option>  
-                <option value="`filmovi`.Relese_date ASC">Oldest</option>  
-                <option value="`filmovi`.Vote_Average DESC">Heigest rated</option>  
-                <option value="`filmovi`.Vote_Average ASC">Lowest rated</option>  
-                <option value="`filmovi`.Title ASC">Alphabetical (A>Z)</option>
-                <option value="`filmovi`.Title DESC">Alphabetical (Z>A)</option>  
-            </select> 
-            <input type='submit' value='Filter' name="submit">
-        </form><br/>
 <?php
     if(isset($_POST["LogOut"])){
         $_SESSION["isLoggedIn"]=0;
@@ -64,8 +50,29 @@ session_start();
     $query=mysqli_query($connection,$kupljeni);
     $rows=mysqli_num_rows($query);
     if($rows === 0){
-        echo("You haven't bought any movies");
+        echo("
+        <center>
+            <img id='nothing' src=slike/nothing.png></img>
+            <h2>There apears to be nothing here</h2>
+        </center>
+        ");
     }else{
+        echo("
+        <form action='profile.php' method='GET'>
+            Sort by:
+            <select name='filter' id='select'>  
+                <option value='`filmovi`.Vote_Count DESC'>Popularity DESC</option>  
+                <option value='`filmovi`.Vote_Count ASC'>Popularity ASC</option>   
+                <option value='`filmovi`.Relese_date DESC'>Newest</option>  
+                <option value='`filmovi`.Relese_date ASC'>Oldest</option>  
+                <option value='`filmovi`.Vote_Average DESC'>Heigest rated</option>  
+                <option value='`filmovi`.Vote_Average ASC'>Lowest rated</option>  
+                <option value='`filmovi`.Title ASC'>Alphabetical (A>Z)</option>
+                <option value='`filmovi`.Title DESC'>Alphabetical (Z>A)</option>  
+            </select> 
+            <input type='submit' value='Filter' name='submit' id='FilterBtn'>
+        </form><br/>
+        ");
         foreach ($query as $key => $value) {
             $parts = explode('-', $value['Relese_date']);
             echo("

@@ -1,23 +1,47 @@
-#profil_filmovi{
-    margin-left:5%;
-    margin-right: 3%;
-}
 #profile-info{
-    margin-left: 10%;
-    margin-right: 20%;
+    height: 100%;
+    width: 60%;
+    float: left;
+    margin: 0% 20%;
+}
+#welcome{
+    width: fit-content;
+    float: left;
+    margin: 5px;
+}
+#profil_filmovi{
+    width: 90%;
+    height: 100%;
+    float:left;
+    padding:0px 10px;
+    margin-left: 5%;
 }
 #ProfileLogOut{
-    float: right;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
+    margin: 5px;
 }
 #logout-form{
     float: right;
 }
 #logout-btn{
-    position: absolute;
-    top: 11%;
+    background: none;
+    border: none;
 }
+#select{
+    background: none;
+    border: none;
+    border-bottom: 2px solid black;
+}
+#FilterBtn{
+    background: none;
+    border: 2px solid black;
+}
+#nothing{
+    height: 350px;
+}
+
+
 
 #film{
     text-align: left;
@@ -30,6 +54,7 @@
     padding: 5px;
     border-radius: 10px;
     visibility: visible;
+    background-color: white;
 }
 #poster-index{
     width:180px;
