@@ -4,11 +4,11 @@
     padding-right: 15px;
     white-space: nowrap;
     overflow: auto;
-    -webkit-mask: linear-gradient(-90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 6%);
+    -webkit-mask: linear-gradient(-90deg, rgba(0,0,0,0) 5px, rgba(0,0,0,1) 4%);
 }
 #SectionTitle{
-    margin-bottom: -10px;
-    margin-left:15px;
+    margin-top: 20px;
+    margin-left:25px;
 }
 #film{
     text-align: left;
@@ -21,6 +21,7 @@
     padding: 5px;
     border-radius: 10px;
     visibility: visible;
+    cursor: pointer;
 }
 #poster-index{
     width:180px;
@@ -47,4 +48,10 @@ form{
 #prijelaz{
     visibility: hidden;
     padding: 0px;
+}
+#container{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    -webkit-mask: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 3%);
 }

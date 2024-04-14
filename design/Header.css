@@ -29,9 +29,10 @@
     border: 3px solid black;
     width: 300px;
     height: 40px;
-    border-radius: 10px;
+    border-radius: 30px;
     font-size: 20px;
     float: left;
+    padding-inline: 10px;
 }
 .search-slika{
     float: left;
@@ -39,6 +40,12 @@
     width: 40px;
     border: none;
     padding-top: 2px;
+    cursor: pointer;
+}
+#search-btn{
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 #Naziv-Stranica{
     height: 100%;
@@ -49,11 +56,10 @@
     padding: 2px;    
 }
 #ikona{
-    height: 70px;
+    height: 60px;
     float: left;
-    width: 70px;
     margin-right: 3px;
-    padding: 2px;
+    margin: 10px;
 }
 a,a:hover, a:visited{
     color: black;

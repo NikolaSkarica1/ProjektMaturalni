@@ -10,11 +10,12 @@
     margin: 5px;
 }
 #profil_filmovi{
-    width: 90%;
+    width: 80%;
     height: 100%;
     float:left;
     padding:0px 10px;
-    margin-left: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 #ProfileLogOut{
     height: 40px;
@@ -27,6 +28,7 @@
 #logout-btn{
     background: none;
     border: none;
+    cursor: pointer;
 }
 #select{
     background: none;
@@ -41,8 +43,6 @@
     height: 350px;
 }
 
-
-
 #film{
     text-align: left;
     margin-bottom: 2px;
@@ -55,6 +55,7 @@
     border-radius: 10px;
     visibility: visible;
     background-color: white;
+    cursor: pointer;
 }
 #poster-index{
     width:180px;

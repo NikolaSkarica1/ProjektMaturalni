@@ -29,15 +29,16 @@ if(isset($_SESSION['isLoggedIn'])){
             <h1 id="Naziv-Stranica">Filmovi!</h1>
         </a>
         <form action=<?php echo($stranica) ?> method="POST"  id="header-login">
-            <button type="submit"><img class="search-slika" src="slike/login.png"></img></button>
+            <button type="submit" id="search-btn"><img class="search-slika" src="slike/login.png"></img></button>
         </form>
         <form action="Search.php" method="GET" id="Search">
             <input type="text" name="select" id="search-input" placeholder="Search"/>
-            <input type='hidden' name='filter' value='Vote_Count DESC'/>
-            <button type="submit"><img class="search-slika" src="slike/search.png"></img></button>
+            <input type='hidden' name='filter' value='Vote_Count DESC'></input>
+            <button type="submit" id="search-btn"><img class="search-slika" src="slike/search.png"></img></button>
         </form>
     </div>
     <div id="a"></div>
+    <div id="container">
 <?php
     $zarnovi=array(
         array("Highest Rated","SELECT * FROM `filmovi` ORDER BY `filmovi`.`Vote_Average` DESC LIMIT 15"),
@@ -93,6 +94,7 @@ if(isset($_SESSION['isLoggedIn'])){
             </div>
         ");
     }
+    echo("</div>")
 ?>
 <div id="footer">
     <p>© 2024 Copyright: Nikola Škarica</p>

@@ -21,7 +21,7 @@ session_start();
         <form action="Search.php" method="GET" id="Search">
             <input type="text" name="select" id="search-input" placeholder="Search"/>
             <input type='hidden' name='filter' value='Vote_Count DESC'/>
-            <button type="submit"><img class="search-slika" src="slike/search.png"></img></button>
+            <button type="submit" id="search-btn"><img class="search-slika" src="slike/search.png"></img></button>
         </form>
     </div>
     <div id="a"></div>
@@ -137,55 +137,57 @@ session_start();
     return $data;
     }
     ?>
-    <div id="signup">
-        <center>
-        <h1>Sign Up</h1><br/>
-        <form method="post">  
-            Username: <input type="text" name="username">
-            <span class="error">*  <br/><?php echo $usernameErr;?></span>
-            <br>
-            E-mail: <input type="text" name="email">
-            <span class="error">* <br><?php echo $emailErr;?></span>
-            <br>
-            First name: <input type="text" name="name">
-            <span class="error">* <br><?php echo $nameErr;?></span>
-            <br>
-            Last name: <input type="text" name="Lname">
-            <span class="error">* <br><?php echo $LastNameErr;?></span>
-            <br>
-            Gender:
-            <input type="radio" name="gender" value="female">Female
-            <input type="radio" name="gender" value="male">Male
-            <input type="radio" name="gender" value="other">Other
-            <span class="error">* <br><?php echo $genderErr;?></span>
-            <br>
-            Password: <input type="password" name="password">
-            <span class="error">* <br><?php echo $passwordErr;?></span>
-            <br>
-            Confirm password: <input type="password" name="passwordConfirm">
-            <span class="error">* <br><?php echo $passwordConfirmErr;?></span>
-            <br><br>
-            <input type="submit" name="submit" value="Sign In">  
-        </form>
-        </center>
-    </div>
-    <div id="LogIn">
-        <center>
-            <h1>Log In</h1>
-            <span class="error"><?php echo $error;?></span><br>
+    <div id="container">
+        <div id="signup">
+            <center>
+            <h1>Sign Up</h1><br/>
             <form method="post">  
                 Username: <input type="text" name="username">
-                <span class="error">* <br><?php echo $LOGusernameErr;?></span>
+                <span class="error">*  <br/><?php echo $usernameErr;?></span>
                 <br>
                 E-mail: <input type="text" name="email">
-                <span class="error">* <br><?php echo $LOGemailErr;?></span>
+                <span class="error">* <br><?php echo $emailErr;?></span>
+                <br>
+                First name: <input type="text" name="name">
+                <span class="error">* <br><?php echo $nameErr;?></span>
+                <br>
+                Last name: <input type="text" name="Lname">
+                <span class="error">* <br><?php echo $LastNameErr;?></span>
+                <br>
+                Gender:
+                <input type="radio" name="gender" value="female">Female
+                <input type="radio" name="gender" value="male">Male
+                <input type="radio" name="gender" value="other">Other
+                <span class="error">* <br><?php echo $genderErr;?></span>
                 <br>
                 Password: <input type="password" name="password">
-                <span class="error">* <br><?php echo $LOGpasswordErr;?></span>
+                <span class="error">* <br><?php echo $passwordErr;?></span>
+                <br>
+                Confirm password: <input type="password" name="passwordConfirm">
+                <span class="error">* <br><?php echo $passwordConfirmErr;?></span>
                 <br><br>
-                <input type="submit" name="login" value="Log In">  
+                <input type="submit" name="submit" value="Sign In">  
             </form>
-        </center>
+            </center>
+        </div>
+        <div id="LogIn">
+            <center>
+                <h1>Log In</h1>
+                <span class="error"><?php echo $error;?></span><br>
+                <form method="post">  
+                    Username: <input type="text" name="username">
+                    <span class="error">* <br><?php echo $LOGusernameErr;?></span>
+                    <br>
+                    E-mail: <input type="text" name="email">
+                    <span class="error">* <br><?php echo $LOGemailErr;?></span>
+                    <br>
+                    Password: <input type="password" name="password">
+                    <span class="error">* <br><?php echo $LOGpasswordErr;?></span>
+                    <br><br>
+                    <input type="submit" name="login" value="Log In">  
+                </form>
+            </center>
+        </div>
     </div>
     <div id="footer">
         <p>© 2024 Copyright: Nikola Škarica</p>

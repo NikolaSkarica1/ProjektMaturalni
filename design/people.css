@@ -32,6 +32,7 @@
     padding: 5px;
     border-radius: 10px;
     visibility: visible;
+    cursor: pointer;
 }
 #poster-index{
     width:180px;

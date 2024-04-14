@@ -91,6 +91,7 @@
     color: white;
     font-weight: bolder;
     font-size: 40px;
+    cursor: pointer;
 }
 #trailer-btn{
     width: 260px;
@@ -101,6 +102,7 @@
     font-size: 40px;
     margin-left:3.6%;
     margin-top: 10px;
+    cursor: pointer;
 }
 #play{
     width: 60px;
@@ -138,6 +140,7 @@
     height: 100%;
     visibility: visible;
     background-color: white;
+    cursor: pointer;
 }
 #actor-img{
     border-radius: 30px;
@@ -163,6 +166,7 @@
     left: 78%;
     top: 12%;
     z-index: 1001;
+    cursor: pointer;
 }
 #video img{
     width: 40px;
@@ -188,6 +192,7 @@
     visibility: visible;
     margin-bottom: 20px;
     padding: 10px;
+    cursor: pointer;
 }
 #txt-collection{
     text-align: left;
@@ -221,4 +226,7 @@ form{
 }
 #dialog{
     display: none;
+}
+#act-txt{
+    margin-left: 5%;
 }

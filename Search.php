@@ -22,20 +22,20 @@ if($_SESSION['isLoggedIn']==1){
             <h1 id="Naziv-Stranica">Filmovi!</h1>
         </a>
         <form action=<?php echo($stranica) ?> method="POST"  id="header-login">
-            <button type="submit"><img class="search-slika" src="slike/login.png"></img></button>
+            <button type="submit" id="search-btn"><img class="search-slika" src="slike/login.png"></img></button>
         </form>
         <form action="Search.php" method="GET" id="Search">
             <input type="text" name="select" id="search-inputt" placeholder="Search"/>
             <input type='hidden' name='filter' value='Vote_Count DESC'/>
-            <button type="submit"><img class="search-slika" src="slike/search.png"></img></button>
+            <button type="submit" id="search-btn"><img class="search-slika" src="slike/search.png"></img></button>
         </form>
     </div>
     <div id="a"></div>
     <?php
         $unos=$_GET['select'];
         $sort=$_GET['filter']
-    ?>
-    <div id='Section-search'><h2>Results for '<?php echo($unos)?>'</h2> <br/>
+    ?> <br/>
+    <div id='Section-search'><h2>Results for '<?php echo($unos)?>'</h2>
 <?php
     $connection=mysqli_connect("localhost","root","","baza");
     $select="SELECT * FROM filmovi WHERE title LIKE '%".$unos."%' ORDER BY `filmovi`.".$sort;
@@ -64,7 +64,7 @@ if($_SESSION['isLoggedIn']==1){
                 <option value='Title DESC'>Alphabetical (Z>A)</option>  
             </select> 
             <input type='submit' value='Filter' id='FilterBtn'>
-        </form><br/>
+        </form><br/><br/>
         ");
         foreach ($selected as $key => $value) {
             $parts = explode('-', $value['Relese_date']);

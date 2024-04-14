@@ -34,12 +34,12 @@ mysqli_close($connection);
             <h1 id="Naziv-Stranica">Filmovi!</h1>
         </a>
         <form action=<?php echo($stranica) ?> method="POST"  id="header-login">
-            <button type="submit"><img class="search-slika" src="slike/login.png"></img></button>
+            <button type="submit" id="search-btn"><img class="search-slika" src="slike/login.png"></img></button>
         </form>
         <form action="Search.php" method="GET" id="Search">
             <input type="text" name="select" id="search-input" placeholder="Search"/>
             <input type='hidden' name='filter' value='Vote_Count DESC'/>
-            <button type="submit"><img class="search-slika" src="slike/search.png"></img></button>
+            <button type="submit" id="search-btn"><img class="search-slika" src="slike/search.png"></img></button>
         </form>
     </div>
     <div id="a"></div>
@@ -152,8 +152,10 @@ mysqli_close($connection);
                 <button type='submit' id='prijelaz'>
                     <div id='actor'>
                         <img src='${slika}' width='200px' id='actor-img'></img>
-                        <h4>${actor.name}</h4>
-                        <p>${actor.character}</p>
+                        <div id='act-txt'>
+                            <h4>${actor.name}</h4>
+                            <p>${actor.character}</p>
+                        </div>
                     </div>
                 </button> 
             </form>

@@ -1,6 +1,7 @@
 #section-search{
-    margin-left:4%;
-    margin-right: 4%;
+    width: 80%;
+    margin-right: 10%;
+    margin-left:10%;
 }
 #select{
     background: none;
@@ -10,6 +11,7 @@
 #FilterBtn{
     background: none;
     border: 2px solid black;
+    cursor: pointer;
 }
 #nothing{
     height: 350px;
@@ -25,6 +27,7 @@
     padding: 5px;
     border-radius: 10px;
     visibility: visible;
+    cursor: pointer;
 }
 #poster-index{
     width:180px;
@@ -43,7 +46,7 @@
     float: left;
     height: 20px;
     width: 20px;
-    padding-top: 2%;
+    padding-top: 1%;
 }
 form{
     display:inline-table;
@@ -54,9 +57,10 @@ form{
 }
 #search-inputt{
     border: 3px solid black;
-    width: 300px;
-    height: 46px;
-    border-radius: 10px;
+    width: 330px;
+    height: 100%;
+    border-radius: 30px;
     font-size: 20px;
     float: left;
+    padding-inline: 10px;
 }
