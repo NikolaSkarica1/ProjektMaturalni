@@ -151,10 +151,10 @@ mysqli_close($connection);
                 <input type='hidden' name='id' value='${actor.id}'/>
                 <button type='submit' id='prijelaz'>
                     <div id='actor'>
-                        <img src='${slika}' width='200px' id='actor-img'></img>
+                        <img src='${slika}' id='actor-img'></img>
                         <div id='act-txt'>
                             <h4>${actor.name}</h4>
-                            <p>${actor.character}</p>
+                            <p>As: ${actor.character}</p>
                         </div>
                     </div>
                 </button> 
