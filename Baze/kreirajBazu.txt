@@ -22,9 +22,18 @@ CREATE TABLE `users` (
   `gender` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`korisnik_id`);
+ALTER TABLE `users`
+  MODIFY `korisnik_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
 
 CREATE TABLE `kupljeno` (
-  `kupljeno` int(11) NOT NULL,
-  `username` varchar(11) NOT NULL,
-  `id_film` int(11) NOT NULL
+  `kupljeno` int(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `id_film` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`korisnik_id`);
+ALTER TABLE `kupljeno`
+  ADD PRIMARY KEY (`kupljeno`);

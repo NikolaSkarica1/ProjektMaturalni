@@ -91,9 +91,7 @@ mysqli_close($connection);
             <img id='backdrop' src='https://www.themoviedb.org/t/p/w1280/${film.backdrop_path}"'/>
             <div id="content">
                 <img id="poster-film" width=250px height=380px src='https://www.themoviedb.org/t/p/w1280/${film.poster_path}"'></img>
-                <div id="buttons">
-                    
-                </div>
+                <div id="buttons"></div>
                 <div id='title-container'>
                     <p id='title-film'>${film.title}</p>
                     <h2 id='tagline'>${film.tagline}</h2>
@@ -103,7 +101,7 @@ mysqli_close($connection);
                         <h2>About:</h2>
                         <p id="overview">${film.overview}</p><br/>
                         <h2>Staring:</h2>
-                        <div id="actors"></div>
+                        <div id="fade"><div id="actors"></div></div>
                         <h3>Directed by:</h3>
                         <p>${dir}</p><br/>
                         <h3>Languages:</h3>
@@ -171,7 +169,7 @@ mysqli_close($connection);
             const kolekcija = await response.json();
             $("#content-container").append(`
                 <h2>${kolekcija.name}:</h2>
-                <div id="collection">
+                <div id="fade"><div id="collection">
             `);
             const godinaKol=[];
             for (let i = 0; i < kolekcija.parts.length; i++) {
@@ -197,7 +195,7 @@ mysqli_close($connection);
                     `);   
                 } 
             }
-            $("#content-container").append('</div>');
+            $("#content-container").append('</div></div>');
         }
     }
     film();
