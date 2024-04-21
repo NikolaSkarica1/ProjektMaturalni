@@ -50,8 +50,7 @@
 }
 #film-star{
     float: left;
-    height: 1.4%;
-    width: 1.8%;
+    height: 1.3vw;
     padding-top: 0.2%;
 
 } 
@@ -134,8 +133,12 @@
 #fade{
     -webkit-mask: linear-gradient(-90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 3%);
 }
+#fade-collection{
+    -webkit-mask: linear-gradient(-90deg, rgba(0,0,0,0) 2%, rgba(0,0,0,1) 4%);
+}
 #act-form{
-    width: 22%;
+    width: 20%;
+    margin:.5%;
 }
 #actor{
     display:inline-table;
@@ -145,8 +148,9 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
     border-radius: 30px;
     margin-bottom: 1%;
-    padding: 4%;
-    height: 100%;
+    padding: 5%;
+    height: max-content;
+    width: 100%;
     visibility: visible;
     background-color: white;
     cursor: pointer;
@@ -189,10 +193,11 @@
     padding: 1.41VW;
     padding-left: 0.7vw;
     margin-right: -2%;
-    -webkit-mask: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 5%);
+    margin-right: 2%;
+    -webkit-mask: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 3%);
 }
 #film-collection{
-    width: 20vw;
+    width: 22vw;
     display:inline-table;
     white-space: normal;
     background-color: white;
@@ -209,7 +214,7 @@
 }
 #poster-collection{
     height:12vw;
-    width: 20vw;
+    width: 22vw;
     visibility: visible;
     border-radius: 30px;
 }
@@ -221,7 +226,8 @@ form{
 }
 #title{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 1.3vw;
+    font-size: 1.5vw;
+    font-weight: bold;
 }
 #index-score{
     float: left;
@@ -229,8 +235,7 @@ form{
 }
 #index-star{
     float: left;
-    height: 20px;
-    width: 20px;
+    height: 1.5vw;
 }
 #dialog{
     display: none;

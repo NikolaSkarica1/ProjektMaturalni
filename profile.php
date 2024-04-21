@@ -37,7 +37,7 @@ session_start();
         <form method="POST" action="profile.php" id= "logout-form"> 
             <button type="submit"  name="LogOut" value="Log Out" id="logout-btn"><img  id="ProfileLogOut" src="slike/logout.png"></button>
         </form>
-    </div><br><hr>
+    </div><br>
     <div id='profil_filmovi'><br/>
         <h2>Your Movies:</h2>
 <?php
@@ -71,7 +71,7 @@ session_start();
                 <option value='`filmovi`.Title DESC'>Alphabetical (Z>A)</option>  
             </select> 
             <input type='submit' value='Filter' name='submit' id='FilterBtn'>
-        </form><br/>
+        </form><br/><br/>
         ");
         foreach ($query as $key => $value) {
             $parts = explode('-', $value['Relese_date']);

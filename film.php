@@ -100,7 +100,7 @@ mysqli_close($connection);
                     <div id="content-container">
                         <h2>About:</h2>
                         <p id="overview">${film.overview}</p><br/>
-                        <h2>Staring:</h2>
+                        <h2>Staring:</h2><br>
                         <div id="fade"><div id="actors"></div></div>
                         <h3>Directed by:</h3>
                         <p>${dir}</p><br/>
@@ -169,7 +169,7 @@ mysqli_close($connection);
             const kolekcija = await response.json();
             $("#content-container").append(`
                 <h2>${kolekcija.name}:</h2>
-                <div id="fade"><div id="collection">
+                <div id="fade-collection"><div id="collection">
             `);
             const godinaKol=[];
             for (let i = 0; i < kolekcija.parts.length; i++) {
