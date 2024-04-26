@@ -23,7 +23,8 @@
 #header-login{
     float: right;
     margin: 20px;
-    margin-left: 0px;
+    margin-left: 0%;
+    margin-right: 5%;
 }
 #search-input{
     border: 3px solid black;
@@ -60,6 +61,7 @@
     float: left;
     margin-right: 3px;
     margin: 10px;
+    margin-left:5%;
 }
 a,a:hover, a:visited{
     color: black;

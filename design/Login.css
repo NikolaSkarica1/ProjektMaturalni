@@ -1,6 +1,7 @@
 #signup{
     width: fit-content;
     height: 50%;
+    width: 35%;
     padding: 2%;
     margin: 2%;
     float: left;
@@ -10,6 +11,7 @@
 #LogIn{
     width: fit-content;
     height: 50%;
+    width: 35%;
     padding: 2%;
     margin: 2%;
     float: left;

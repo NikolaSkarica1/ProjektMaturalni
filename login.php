@@ -18,6 +18,7 @@ session_start();
             <img src="slike/ikona.png" id="ikona"/>        
             <h1 id="Naziv-Stranica">Filmovi!</h1>
         </a>
+        <div id="header-login"></div>
         <form action="Search.php" method="GET" id="Search">
             <input type="text" name="select" id="search-input" placeholder="Search"/>
             <input type='hidden' name='filter' value='Vote_Count DESC'/>
@@ -138,8 +139,8 @@ session_start();
     }
     ?>
     <div id="container">
+        <center>
         <div id="signup">
-            <center>
             <h1>Sign Up</h1><br/>
             <form method="post">  
                 Username: <input type="text" name="username">
@@ -168,10 +169,8 @@ session_start();
                 <br><br>
                 <input type="submit" name="submit" value="Sign In">  
             </form>
-            </center>
         </div>
         <div id="LogIn">
-            <center>
                 <h1>Log In</h1>
                 <span class="error"><?php echo $error;?></span><br>
                 <form method="post">  
@@ -186,8 +185,8 @@ session_start();
                     <br><br>
                     <input type="submit" name="login" value="Log In">  
                 </form>
-            </center>
-        </div>
+            </div>
+        </center>
     </div>
     <div id="footer">
         <p>© 2024 Copyright: Nikola Škarica</p>
