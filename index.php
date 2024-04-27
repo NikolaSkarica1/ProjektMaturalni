@@ -19,7 +19,7 @@ if(isset($_SESSION['isLoggedIn'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="design/Header.css">
     <link rel="stylesheet" type="text/css" href="design/Index.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>Filmovi!</title>
 </head>
 <body>
@@ -38,7 +38,7 @@ if(isset($_SESSION['isLoggedIn'])){
         </form>
     </div>
     <div id="a"></div>
-    <div id="container">
+    <div id="container"><br>
 <?php
     $zarnovi=array(
         array("Highest Rated","SELECT * FROM `filmovi` ORDER BY `filmovi`.`Vote_Average` DESC LIMIT 15"),
@@ -77,13 +77,13 @@ if(isset($_SESSION['isLoggedIn'])){
         ");
         foreach ($selected as $key => $value) {
             echo("
-            <form action='film.php' method='GET'>
+            <form action='film.php' method='GET' class='form'>
                 <input type='hidden' name='id' value='".$value['id_film']."'/>
                 <button type='submit' id='prijelaz'>
-                    <div id='film'>
-                        <img id='poster-index' src='https://www.themoviedb.org/t/p/w1280/".$value['poster_path']."'></img>
+                    <div class='film'>
+                        <img id='poster-index' src='https://www.themoviedb.org/t/p/w1280/".$value['poster_path']."'>
                         <p id='title'>".$value['Title']."</p>
-                        <p id='index-score'>".$value['Vote_Average']." </p><img id='index-star' src='slike/star.png'></img>
+                        <p id='index-score'>".$value['Vote_Average']." </p><img id='index-star' src='slike/star.png'>
                         <p id='index-score'> ◦ 20€</p>
                     </div>
                 </button> 
@@ -94,8 +94,21 @@ if(isset($_SESSION['isLoggedIn'])){
             </div>
         ");
     }
-    echo("</div>")
+    echo("</div>");
 ?>
+<script>
+    $(".film").hover(function(){
+        $(this).animate({
+            "width":"190px",
+            "margin-top":"-20px",
+        });
+    }, function(){
+        $(this).animate({
+            "width":"180px",
+            "margin-top":"0px"
+        });
+    });
+</script>
 <div id="footer">
     <p>© 2024 Copyright: Nikola Škarica</p>
     Powered by: <a href="https://www.themoviedb.org"><img src="slike/tmdb.svg" width="200px"/></a>

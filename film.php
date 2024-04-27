@@ -90,7 +90,7 @@ mysqli_close($connection);
         $("#container").append(`
             <img id='backdrop' src='https://www.themoviedb.org/t/p/w1280/${film.backdrop_path}"'/>
             <div id="content">
-                <img id="poster-film" width=250px height=380px src='https://www.themoviedb.org/t/p/w1280/${film.poster_path}"'></img>
+                <img id="poster-film" src='https://www.themoviedb.org/t/p/w1280/${film.poster_path}"'></img>
                 <div id="buttons"></div>
                 <div id='title-container'>
                     <p id='title-film'>${film.title}</p>
