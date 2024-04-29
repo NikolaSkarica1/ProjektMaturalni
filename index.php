@@ -101,11 +101,15 @@ if(isset($_SESSION['isLoggedIn'])){
         $(this).animate({
             "width":"190px",
             "margin-top":"-20px",
+            "margin-left":"-5px",
+            "margin-right":"-5px"
         });
     }, function(){
         $(this).animate({
             "width":"180px",
-            "margin-top":"0px"
+            "margin-top":"0px",
+            "margin-left":"0px",
+            "margin-right":"0px"
         });
     });
 </script>

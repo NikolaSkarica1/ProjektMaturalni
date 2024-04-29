@@ -13,6 +13,7 @@ if($_SESSION['isLoggedIn']==1){
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="design/Search.css">
     <link rel="stylesheet" type="text/css" href="design/Header.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>Search</title>
 </head>
 <body>
@@ -36,6 +37,7 @@ if($_SESSION['isLoggedIn']==1){
         $sort=$_GET['filter']
     ?> <br/>
     <div id='Section-search'><h2>Results for '<?php echo($unos)?>'</h2>
+
 <?php
     $connection=mysqli_connect("localhost","root","","baza");
     $select="SELECT * FROM filmovi WHERE title LIKE '%".$unos."%' ORDER BY `filmovi`.".$sort;
@@ -69,10 +71,10 @@ if($_SESSION['isLoggedIn']==1){
         foreach ($selected as $key => $value) {
             $parts = explode('-', $value['Relese_date']);
             echo("
-            <form action='film.php' method='GET'>
+            <form action='film.php' method='GET' class='form'>
                 <input type='hidden' name='id' value='".$value['id_film']."'/>
                 <button type='submit' id='prijelaz'>
-                    <div id='film'>
+                    <div class='film'>
                         <img id='poster-index' src='https://www.themoviedb.org/t/p/w1280/".$value['poster_path']."'></img>
                         <p id='title'>".$value['Title']."</p>
                         <p id='index-score'>".$value['Vote_Average']."</p><img id='index-star' src='slike/star.png'></img>
@@ -85,6 +87,23 @@ if($_SESSION['isLoggedIn']==1){
     }
     echo("</div>");
 ?>  
+<script>
+    $(".film").hover(function(){
+        $(this).animate({
+            "width":"190px",
+            "margin-top":"-20px",
+            "margin-left":"-5px",
+            "margin-right":"-5px"
+        });
+    }, function(){
+        $(this).animate({
+            "width":"180px",
+            "margin-top":"0px",
+            "margin-left":"0px",
+            "margin-right":"0px"
+        });
+    });
+</script>
 <div id="footer">
     <p>© 2024 Copyright: Nikola Škarica</p>
     Powered by: <a href="https://www.themoviedb.org"><img src="slike/tmdb.svg" width="200px"/></a>

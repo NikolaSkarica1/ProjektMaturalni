@@ -50,7 +50,7 @@
 }
 #film-star{
     float: left;
-    height: 1.3vw;
+    height: 1vw;
     padding-top: 0.2%;
 
 } 
@@ -235,7 +235,7 @@ form{
 }
 #index-star{
     float: left;
-    height: 1.5vw;
+    height: 1vw;
 }
 #dialog{
     display: none;

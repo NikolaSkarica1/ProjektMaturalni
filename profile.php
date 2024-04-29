@@ -53,7 +53,7 @@ session_start();
         echo("
         <center>
             <img id='nothing' src=slike/nothing.png></img>
-            <h2>There apears to be nothing here</h2>
+            <h2>Nothing here! :(</h2>
         </center>
         ");
     }else{
@@ -76,10 +76,10 @@ session_start();
         foreach ($query as $key => $value) {
             $parts = explode('-', $value['Relese_date']);
             echo("
-            <form action='film.php' method='GET'>
+            <form action='film.php' method='GET' class='form'>
                 <input type='hidden' name='id' value='".$value['id_film']."'/>
                 <button type='submit' id='prijelaz'>
-                    <div id='film'>
+                    <div class='film'>
                         <img id='poster-index' src='https://www.themoviedb.org/t/p/w1280/".$value['poster_path']."'></img>
                         <p id='title'>".$value['Title']."</p>
                         <p id='index-score'>".$value['Vote_Average']."</p><img id='index-star' src='slike/star.png'></img>
@@ -92,6 +92,23 @@ session_start();
     }
     echo("</div>");
 ?>
+<script>
+    $(".film").hover(function(){
+        $(this).animate({
+            "width":"190px",
+            "margin-top":"-20px",
+            "margin-left":"-5px",
+            "margin-right":"-5px"
+        });
+    }, function(){
+        $(this).animate({
+            "width":"180px",
+            "margin-top":"0px",
+            "margin-left":"0px",
+            "margin-right":"0px"
+        });
+    });
+</script>
 <div id="footer">
     <p>© 2024 Copyright: Nikola Škarica</p>
     Powered by: <a href="https://www.themoviedb.org"><img src="slike/tmdb.svg" width="200px"/></a>

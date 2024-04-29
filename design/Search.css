@@ -16,22 +16,20 @@
 #nothing{
     height: 350px;
 }
-#film{
+.film{
     text-align: left;
-    margin-bottom: 2px;
-    border: 0px;;
     display:inline-table;
     white-space: normal;
-    width: 180px;   
+    width: 180px;
+    height: fit-content;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    padding: 5px;
+    padding: 3%;
     border-radius: 10px;
     visibility: visible;
     cursor: pointer;
 }
 #poster-index{
-    width:180px;
-    height:260px;
+    width:100%;
     border-radius: 10px;
 }
 #title{
@@ -46,10 +44,11 @@
     float: left;
     height: 20px;
     width: 20px;
-    padding-top: 1%;
+    padding-top: 1px;
 }
-form{
+.form{
     display:inline-table;
+    padding: 0.6%;
 }
 #prijelaz{
     visibility: hidden;

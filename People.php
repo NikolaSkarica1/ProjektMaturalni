@@ -33,6 +33,7 @@ if($_SESSION['isLoggedIn']==1){
     </div>
     <div id="a"></div>
 <script>
+    
     const options = {
         method: 'GET',
         headers: {
@@ -81,10 +82,10 @@ if($_SESSION['isLoggedIn']==1){
         for (let i = 0; i < actor.credits.cast.length; i++) {
             if(actor.credits.cast[i].vote_count>500){
                 $('#actor-movies').append(`
-                <form action='film.php' method='GET'>
+                <form action='film.php' method='GET' class='form'>
                     <input type='hidden' name='id' value='${actor.credits.cast[i].id}'/>
                     <button type='submit' id='prijelaz'>
-                        <div id='film'>
+                        <div class='film'>
                             <img id='poster-index' src='https://www.themoviedb.org/t/p/w1280/${actor.credits.cast[i].poster_path}'></img>
                             <p id='title'>${actor.credits.cast[i].title}</p>
                             <p id='index-score'>As: ${actor.credits.cast[i].character}</p>
@@ -94,7 +95,23 @@ if($_SESSION['isLoggedIn']==1){
                 `);
             }
         }
-    }
+        $(".film").hover(function(){
+            console.log("a")
+            $(this).animate({
+                "width":"190px",
+                "margin-top":"-20px",
+                "margin-left":"-5px",
+                "margin-right":"-5px"
+            });
+        }, function(){
+            $(this).animate({
+                "width":"180px",
+                "margin-top":"0px",
+                "margin-left":"0px",
+                "margin-right":"0px"
+            });
+        });
+    };
     logMovies();
 </script>
 </body>

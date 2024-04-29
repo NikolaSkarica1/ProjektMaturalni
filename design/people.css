@@ -1,6 +1,7 @@
 #actor-info{
     width: 20%;
     height: 100%;
+    margin-left: 5%;
     float: left;
     border-right: 2px solid gainsboro;
     padding: 10px;
@@ -16,27 +17,25 @@
     margin-left:5%;
 }
 #actor-movies{
-    width:78%;
+    width:68%;
     height: 100%;
     float: left;
-    margin-left:22%;
+    margin-left:27%;
 }
-#film{
+.film{
     text-align: left;
-    margin-bottom: 2px;
-    border: 0px;;
     display:inline-table;
     white-space: normal;
-    width: 180px;   
+    width: 180px;
+    height: fit-content;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    padding: 5px;
+    padding: 3%;
     border-radius: 10px;
     visibility: visible;
     cursor: pointer;
 }
 #poster-index{
-    width:180px;
-    height:260px;
+    width:100%;
     border-radius: 10px;
 }
 #title{
@@ -47,8 +46,9 @@
     float: left;
     font-size: 20px;
 }
-form{
+.form{
     display:inline-table;
+    padding: 0.6%;
 }
 #prijelaz{
     visibility: hidden;

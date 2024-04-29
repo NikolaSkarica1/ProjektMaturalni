@@ -102,6 +102,7 @@ mysqli_close($connection);
                         <p id="overview">${film.overview}</p><br/>
                         <h2>Staring:</h2><br>
                         <div id="fade"><div id="actors"></div></div>
+                        <div id="col"></div>
                         <h3>Directed by:</h3>
                         <p>${dir}</p><br/>
                         <h3>Languages:</h3>
@@ -167,7 +168,7 @@ mysqli_close($connection);
         async function kolekcija() {
             const response = await fetch('https://api.themoviedb.org/3/collection/'+film.belongs_to_collection.id+'?language=en-US', options);
             const kolekcija = await response.json();
-            $("#content-container").append(`
+            $("#col").append(`
                 <h2>${kolekcija.name}:</h2>
                 <div id="fade-collection"><div id="collection">
             `);
