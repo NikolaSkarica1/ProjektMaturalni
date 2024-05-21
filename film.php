@@ -145,10 +145,10 @@ mysqli_close($connection);
         if(film.belongs_to_collection !=null){
             kolekcija();
         }
-
         async function kolekcija() {
             const response = await fetch('https://api.themoviedb.org/3/collection/'+film.belongs_to_collection.id+'?language=en-US', options);
             const kolekcija = await response.json();
+            console.log(kolekcija);
             $("#col").append(`
                 <h2>${kolekcija.name}:</h2>
                 <div id="fade-collection"><div id="collection">
@@ -247,7 +247,6 @@ mysqli_close($connection);
         }else{
             alert("You need to log in first.");
         }
-
     }
 </script>
 <div id="dialog">
