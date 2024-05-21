@@ -43,11 +43,11 @@ if(isset($_SESSION['isLoggedIn'])){
     $zarnovi=array(
         array("Highest Rated","SELECT * FROM `filmovi` ORDER BY `filmovi`.`Vote_Average` DESC LIMIT 15"),
         array("Newest","SELECT * FROM `filmovi` ORDER BY `filmovi`.`Relese_date` DESC LIMIT 15"),
-        array("Action-Adventure","SELECT * FROM `filmovi` WHERE genre_id = 28 or 12 and genre_id_2 = 28 or 12 LIMIT 15"),
-        array("Horror","SELECT * FROM `filmovi` WHERE genre_id = 27 or genre_id_2 = 27 LIMIT 15"),
-        array("Romance","SELECT * FROM `filmovi` WHERE genre_id = 10749 or genre_id_2 = 10749 LIMIT 15"),
+        array("Action-Adventure","SELECT * FROM `filmovi` WHERE genre_id = 28 or 12 LIMIT 15"),
+        array("Horror","SELECT * FROM `filmovi` WHERE genre_id = 27 LIMIT 15"),
+        array("Romance","SELECT * FROM `filmovi` WHERE genre_id = 10749 LIMIT 15"),
         array("Sci-Fi","SELECT * FROM `filmovi` WHERE genre_id = 878 LIMIT 15"),
-        array("Fantasy","SELECT * FROM `filmovi` WHERE genre_id = 14 or genre_id_2 = 14 LIMIT 15"),
+        array("Fantasy","SELECT * FROM `filmovi` WHERE genre_id = 14 LIMIT 15"),
         array("Animation","SELECT * FROM `filmovi` WHERE genre_id = 16 LIMIT 15"),
         array("Comedy","SELECT * FROM `filmovi` WHERE genre_id = 35 LIMIT 15"),
         array("Crime","SELECT * FROM `filmovi` WHERE genre_id = 80 LIMIT 15"),
@@ -61,7 +61,7 @@ if(isset($_SESSION['isLoggedIn'])){
     );
     $connection=mysqli_connect("localhost","root","","baza");
     $opcije=array("");
-    for ($i=0; $i < 16; $i++) { 
+    for ($i=0; $i <= 16; $i++) { 
         $nasumicni=rand(0,16);
         for ($j=0; $j <= $i; $j++) { 
             if($nasumicni==$opcije[$j]){

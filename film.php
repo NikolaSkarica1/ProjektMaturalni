@@ -58,21 +58,18 @@ mysqli_close($connection);
     async function film() {
         const response = await fetch('https://api.themoviedb.org/3/movie/'+film_id+'?append_to_response=credits%2Cvideos&language=en-US', options);
         const film = await response.json();
+        console.log(film);
 
         const godina=film.release_date.split("-");
-
         var zarnovi = film.genres.map(function(item) {
             return item['name'];
         });
-
         var jezici = film.spoken_languages.map(function(item) {
             return item['english_name'];
         });
-
         var kompanije = film.production_companies.map(function(item) {
             return item['name'];
         });
-
         var drzave = film.production_countries.map(function(item) {
             return item['name'];
         });
@@ -120,23 +117,7 @@ mysqli_close($connection);
                 <div id='video'></div>
             </div>
         `);
-        let dostupno="<?php echo($dostupno)?>";
-        if(dostupno ==1){
-            $("#buttons").append(`
-                <button id="kupi-button" onClick=Kupi()>Buy 20€</button>
-            `);
-        }
-        if(trailers!=""){
-            $("#buttons").append(`
-                <br><button id='trailer-btn' onClick=trailer()><img id='play' src='slike/play.png'/><p id='trailer-txt'>Trailer</p></button>
-            `);
-            $("#video").append(`
-                <button onClick=zatvori()><img src="slike/x.png"/></button>
-                <center>
-                    <iframe width="860" height="560" src="https://www.youtube.com/embed/${trailers}"/>
-                </center>
-            `);
-        }
+
         for (let i = 0; i < film.credits.cast.length; i++) {
             let actor=film.credits.cast[i];
             let slika;
@@ -197,6 +178,24 @@ mysqli_close($connection);
                 } 
             }
             $("#content-container").append('</div></div>');
+        }
+        
+        let dostupno="<?php echo($dostupno)?>";
+        if(dostupno ==1){
+            $("#buttons").append(`
+                <button id="kupi-button" onClick=Kupi()>Buy 20€</button>
+            `);
+        }
+        if(trailers!=""){
+            $("#buttons").append(`
+                <br><button id='trailer-btn' onClick=trailer()><img id='play' src='slike/play.png'/><p id='trailer-txt'>Trailer</p></button>
+            `);
+            $("#video").append(`
+                <button onClick=zatvori()><img src="slike/x.png"/></button>
+                <center>
+                    <iframe width="860" height="560" src="https://www.youtube.com/embed/${trailers}"/>
+                </center>
+            `);
         }
     }
     film();

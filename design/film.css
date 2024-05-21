@@ -235,7 +235,7 @@ form{
 }
 #index-star{
     float: left;
-    height: 1vw;
+    height: 20px;
 }
 #dialog{
     display: none;

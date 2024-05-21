@@ -34,7 +34,7 @@ if($_SESSION['isLoggedIn']==1){
     <div id="a"></div>
     <?php
         $unos=$_GET['select'];
-        $sort=$_GET['filter']
+        $sort=$_GET['filter'];
     ?> <br/>
     <div id='Section-search'><h2>Results for '<?php echo($unos)?>'</h2>
 
@@ -47,7 +47,7 @@ if($_SESSION['isLoggedIn']==1){
         echo("
         <center>
             <img id='nothing' src=slike/nothing.png></img>
-            <h2>There apears to be nothing here</h2>
+            <h2>Nothing here</h2>
         </center>
         ");
     }else{

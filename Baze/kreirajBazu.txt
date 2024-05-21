@@ -5,11 +5,8 @@ CREATE TABLE `filmovi` (
   `Relese_date` date DEFAULT NULL,
   `Vote_Average` decimal(2,1) DEFAULT NULL,
   `Vote_Count` int(255) DEFAULT NULL,
-  `Overview` text DEFAULT NULL,
-  `original_language` varchar(255) DEFAULT NULL,
   `id_film` int(255) DEFAULT NULL,
   `genre_id` varchar(255) DEFAULT NULL,
-  `genre_id_2` varchar(255) DEFAULT NULL,
   `poster_path` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

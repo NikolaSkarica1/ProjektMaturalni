@@ -25,8 +25,7 @@
             const response = await fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page='+i+'&sort_by=vote_count.desc&without_keywords=softcore%2C%20pink%20film', options);
             const movies = await response.json();
             console.log(movies);
-            let myJSONText=JSON.stringify(movies.results);
-            console.log(myJSONText);             
+            let myJSONText=JSON.stringify(movies.results);     
             $.ajax({
                 type:"POST",
                 data:{myJSONText : myJSONText},
