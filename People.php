@@ -42,7 +42,7 @@ if($_SESSION['isLoggedIn']==1){
         }
     };
 
-    async function logMovies() {
+    async function actor() {
         const response = await fetch('https://api.themoviedb.org/3/person/'+<?php echo($_GET['id']) ?>+'?append_to_response=credits&language=en-US', options);
         const actor = await response.json();
         let gen;
@@ -53,7 +53,6 @@ if($_SESSION['isLoggedIn']==1){
         }else if(actor.gender==3){
             gen="Other"
         }
-
         let slika;
         if(actor.profile_path==null){
             slika="slike/empty-actor.png";
@@ -80,7 +79,7 @@ if($_SESSION['isLoggedIn']==1){
             </div>
         `);
         for (let i = 0; i < actor.credits.cast.length; i++) {
-            if(actor.credits.cast[i].vote_count>500){
+            if(actor.credits.cast[i].vote_count>50){
                 $('#actor-movies').append(`
                 <form action='film.php' method='GET' class='form'>
                     <input type='hidden' name='id' value='${actor.credits.cast[i].id}'/>
@@ -96,7 +95,6 @@ if($_SESSION['isLoggedIn']==1){
             }
         }
         $(".film").hover(function(){
-            console.log("a")
             $(this).animate({
                 "width":"190px",
                 "margin-top":"-20px",
@@ -112,7 +110,7 @@ if($_SESSION['isLoggedIn']==1){
             });
         });
     };
-    logMovies();
+    actor();
 </script>
 </body>
 </html>

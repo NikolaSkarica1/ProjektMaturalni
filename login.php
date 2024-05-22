@@ -171,21 +171,21 @@ session_start();
             </form>
         </div>
         <div id="LogIn">
-                <h1>Log In</h1>
-                <span class="error"><?php echo $error;?></span><br>
-                <form method="post">  
-                    Username: <input type="text" name="username">
-                    <span class="error">* <br><?php echo $LOGusernameErr;?></span>
-                    <br>
-                    E-mail: <input type="text" name="email">
-                    <span class="error">* <br><?php echo $LOGemailErr;?></span>
-                    <br>
-                    Password: <input type="password" name="password">
-                    <span class="error">* <br><?php echo $LOGpasswordErr;?></span>
-                    <br><br>
-                    <input type="submit" name="login" value="Log In">  
-                </form>
-            </div>
+            <h1>Log In</h1>
+            <span class="error"><?php echo $error;?></span><br>
+            <form method="post">  
+                Username: <input type="text" name="username">
+                <span class="error">* <br><?php echo $LOGusernameErr;?></span>
+                <br>
+                E-mail: <input type="text" name="email">
+                <span class="error">* <br><?php echo $LOGemailErr;?></span>
+                <br>
+                Password: <input type="password" name="password">
+                <span class="error">* <br><?php echo $LOGpasswordErr;?></span>
+                <br><br>
+                <input type="submit" name="login" value="Log In">  
+            </form>
+        </div>
         </center>
     </div>
     <div id="footer">
